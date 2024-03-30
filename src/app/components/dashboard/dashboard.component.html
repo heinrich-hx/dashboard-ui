@@ -1,0 +1,5 @@
+<button type="button" routerLink="/settings">Settings</button>
+
+<ng-container *ngIf="$dashboard | async; let dashboard">
+<div *ngFor="let link of dashboard.navbar">{{ link.label }}</div>
+</ng-container>

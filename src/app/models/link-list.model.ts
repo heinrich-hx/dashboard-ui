@@ -13,7 +13,7 @@ export interface LinkListModel {
   /**
    * Icon
    */
-  icon: string
+  icon?: string
 
   /**
    * An array of links

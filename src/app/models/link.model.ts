@@ -16,6 +16,6 @@ export interface LinkModel {
   /**
    * Icon
    */
-   icon: string
+   icon?: string
 
 }
