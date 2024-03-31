@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { DashboardService } from '../../services/dashboard.service';
-import { Observable } from 'rxjs';
-import { DashboardModel } from '../../models/dashboard.model';
 import { RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
+import { IconComponent } from '../icon/icon.component';
+import { DashboardService } from '../../services/dashboard.service';
+import { DashboardModel } from '../../models/dashboard.model';
 
 /**
  * The main view
@@ -11,7 +12,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, IconComponent, RouterLink],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
