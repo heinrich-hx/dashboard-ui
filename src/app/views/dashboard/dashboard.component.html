@@ -1,0 +1,19 @@
+<button type="button" routerLink="/settings">
+  <app-icon icon="cog"></app-icon>
+</button>
+<button type="button" routerLink="/user">
+  <app-icon icon="user"></app-icon>
+</button>
+
+<app-container>
+  <ng-container *ngIf="$dashboard | async; let dashboard">
+    <app-link *ngFor="let link of dashboard.navbar" [link]="link"></app-link>
+  </ng-container>
+
+  <app-panel>
+    <ul>
+      <li>ONE</li>
+      <li>TWO</li>
+    </ul>
+  </app-panel>
+</app-container>

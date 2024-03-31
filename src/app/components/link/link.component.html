@@ -1,0 +1,4 @@
+<ng-container *ngIf="link">
+  <app-icon [icon]="link.icon"></app-icon>
+  <a [href]="link.url" target="_blank">{{ link.label }}</a>
+</ng-container>

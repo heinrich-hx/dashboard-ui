@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { IconEnum } from './icon.enum';
 
 /**
@@ -10,17 +10,27 @@ import { IconEnum } from './icon.enum';
   templateUrl: './icon.component.html',
   styleUrl: './icon.component.css'
 })
-export class IconComponent {
+export class IconComponent implements OnChanges {
 
   /**
    * Name of the icon to display
    */
   @Input()
-  icon?: keyof typeof IconEnum;
+  icon?: string;
 
   /**
-   * IconEnum for template use
+   * URL of the icon file
    */
-  readonly ICON_ENUM = IconEnum;
+  url?: string;
+
+  /**
+   * Processes input value
+   */
+  ngOnChanges(changes: SimpleChanges): void {
+    this.url = IconEnum[this.icon as keyof typeof IconEnum];
+    if (!this.url) {
+      console.error(`Unknown icon: ${this.icon}`);
+    }
+  }
 
 }

@@ -18,7 +18,7 @@ export class DashboardService {
   getDashboard(): Observable<DashboardModel> {
     return of({
       navbar: [
-        { label: 'Test', url: '' }
+        { label: 'Heroicons', url: 'https://heroicons.com/', icon: 'link' }
       ],
       top: [],
       panels: [],
