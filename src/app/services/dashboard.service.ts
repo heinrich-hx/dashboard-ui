@@ -31,54 +31,54 @@ export class DashboardService {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/'},
-            { label: 'Icons', url: 'https://heroicons.com/' },
-            { label: 'Icons', url: 'https://heroicons.com/' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
+            { label: 'Icons', url: 'https://fontawesome.com/search' },
+            { label: 'Icons', url: 'https://fontawesome.com/search' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/'},
-            { label: 'Icons', url: 'https://heroicons.com/' },
-            { label: 'Icons', url: 'https://heroicons.com/' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
+            { label: 'Icons', url: 'https://fontawesome.com/search' },
+            { label: 'Icons', url: 'https://fontawesome.com/search' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/'},
-            { label: 'Icons', url: 'https://heroicons.com/' },
-            { label: 'Icons', url: 'https://heroicons.com/' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
+            { label: 'Icons', url: 'https://fontawesome.com/search' },
+            { label: 'Icons', url: 'https://fontawesome.com/search' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/'},
-            { label: 'Icons', url: 'https://heroicons.com/' },
-            { label: 'Icons', url: 'https://heroicons.com/' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
+            { label: 'Icons', url: 'https://fontawesome.com/search' },
+            { label: 'Icons', url: 'https://fontawesome.com/search' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/'},
-            { label: 'Icons', url: 'https://heroicons.com/' },
-            { label: 'Icons', url: 'https://heroicons.com/' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
+            { label: 'Icons', url: 'https://fontawesome.com/search' },
+            { label: 'Icons', url: 'https://fontawesome.com/search' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/'},
-            { label: 'Icons', url: 'https://heroicons.com/' },
-            { label: 'Icons', url: 'https://heroicons.com/' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
+            { label: 'Icons', url: 'https://fontawesome.com/search' },
+            { label: 'Icons', url: 'https://fontawesome.com/search' }
           ]
         }
       ],
