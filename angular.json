@@ -22,15 +22,12 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "*.svg",
-                "input": "./node_modules/heroicons/24/outline/",
-                "output": "/assets/img/"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/solid.min.css"
             ],
             "scripts": []
           },

@@ -10,8 +10,10 @@ import { CommonModule } from '@angular/common';
   selector: 'app-link',
   standalone: true,
   imports: [CommonModule, IconComponent],
-  templateUrl: './link.component.html',
-  styleUrl: './link.component.css'
+  host: {
+    class: 'inline-block'
+  },
+  templateUrl: './link.component.html'
 })
 export class LinkComponent {
 

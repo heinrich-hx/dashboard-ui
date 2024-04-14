@@ -1,5 +1,1 @@
-<!-- TODO Set color properly -->
-<img [src]="url" style="filter:invert(1)">
-<!--<svg class="h-6 w-6">
-  <use class="h-6 w-6" width="24" height="24" [attr.href]="url" />
-</svg>-->
+<i *ngIf="icon" [ngClass]="['fa-solid', 'fa-' + icon]"></i>
