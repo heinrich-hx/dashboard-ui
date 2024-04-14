@@ -8,6 +8,7 @@ import { DashboardModel } from '../../models/dashboard.model';
 import { PanelComponent } from '../../components/panel/panel.component';
 import { ContainerComponent } from '../../components/container/container.component';
 import { LinkComponent } from '../../components/link/link.component';
+import { HeadingComponent } from '../../components/heading/heading.component';
 
 /**
  * The main view
@@ -15,7 +16,15 @@ import { LinkComponent } from '../../components/link/link.component';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, ContainerComponent, IconComponent, LinkComponent, PanelComponent, RouterLink],
+  imports: [
+    CommonModule,
+    ContainerComponent,
+    HeadingComponent,
+    IconComponent,
+    LinkComponent,
+    PanelComponent,
+    RouterLink
+  ],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
