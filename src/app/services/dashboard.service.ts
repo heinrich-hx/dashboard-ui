@@ -30,6 +30,49 @@ export class DashboardService {
           label: 'Resources',
           links: [
             { label: 'CSS', url: 'https://tailwindcss.com/', icon: 'codeBracket'},
+            { label: 'Icons', url: 'https://heroicons.com/', icon: 'link' },
+            { label: 'Icons', url: 'https://heroicons.com/', icon: 'link' }
+          ]
+        },
+        {
+          label: 'Resources',
+          links: [
+            { label: 'CSS', url: 'https://tailwindcss.com/', icon: 'codeBracket'},
+            { label: 'Icons', url: 'https://heroicons.com/', icon: 'link' }
+          ]
+        },
+        {
+          label: 'Resources',
+          links: [
+            { label: 'CSS', url: 'https://tailwindcss.com/', icon: 'codeBracket'},
+            { label: 'Icons', url: 'https://heroicons.com/', icon: 'link' }
+          ]
+        },
+        {
+          label: 'Resources',
+          links: [
+            { label: 'CSS', url: 'https://tailwindcss.com/', icon: 'codeBracket'},
+            { label: 'Icons', url: 'https://heroicons.com/', icon: 'link' }
+          ]
+        },
+        {
+          label: 'Resources',
+          links: [
+            { label: 'CSS', url: 'https://tailwindcss.com/', icon: 'codeBracket'},
+            { label: 'Icons', url: 'https://heroicons.com/', icon: 'link' }
+          ]
+        },
+        {
+          label: 'Resources',
+          links: [
+            { label: 'CSS', url: 'https://tailwindcss.com/', icon: 'codeBracket'},
+            { label: 'Icons', url: 'https://heroicons.com/', icon: 'link' }
+          ]
+        },
+        {
+          label: 'Resources',
+          links: [
+            { label: 'CSS', url: 'https://tailwindcss.com/', icon: 'codeBracket'},
             { label: 'Icons', url: 'https://heroicons.com/', icon: 'link' }
           ]
         }

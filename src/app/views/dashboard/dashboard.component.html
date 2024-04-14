@@ -10,14 +10,16 @@
 
     <app-link *ngFor="let link of dashboard.top" [link]="link"></app-link>
 
-    <app-panel *ngFor="let panel of dashboard.panels">
-      <app-heading [level]="2">{{ panel.label }}</app-heading>
-      <ul>
-        <li *ngFor="let link of panel.links">
-          <app-link [link]="link"></app-link>
-        </li>
-      </ul>
-    </app-panel>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-4">
+      <app-panel *ngFor="let panel of dashboard.panels" class="">
+        <app-heading [level]="2">{{ panel.label }}</app-heading>
+        <ul>
+          <li *ngFor="let link of panel.links">
+            <app-link [link]="link"></app-link>
+          </li>
+        </ul>
+      </app-panel>
+    </div>
 
   </ng-container>
 </app-container>
