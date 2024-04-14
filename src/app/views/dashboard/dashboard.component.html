@@ -7,13 +7,15 @@
 
 <app-container>
   <ng-container *ngIf="$dashboard | async; let dashboard">
-    <app-link *ngFor="let link of dashboard.navbar" [link]="link"></app-link>
-  </ng-container>
+    <app-link *ngFor="let link of dashboard.top" [link]="link"></app-link>
+    <app-panel *ngFor="let panel of dashboard.panels">
+      {{ panel.label }}
+      <ul>
+        <li *ngFor="let link of panel.links">
+          <app-link [link]="link"></app-link>
+        </li>
+      </ul>
+    </app-panel>
 
-  <app-panel>
-    <ul>
-      <li>ONE</li>
-      <li>TWO</li>
-    </ul>
-  </app-panel>
+  </ng-container>
 </app-container>

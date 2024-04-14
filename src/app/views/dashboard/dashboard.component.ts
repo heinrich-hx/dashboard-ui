@@ -16,8 +16,7 @@ import { LinkComponent } from '../../components/link/link.component';
   selector: 'app-dashboard',
   standalone: true,
   imports: [CommonModule, ContainerComponent, IconComponent, LinkComponent, PanelComponent, RouterLink],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 

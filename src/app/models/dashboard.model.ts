@@ -7,11 +7,6 @@ import { LinkModel } from './link.model';
 export interface DashboardModel {
 
   /**
-   * Navbar
-   */
-  navbar: LinkModel[];
-
-  /**
    * Top area
    */
   top: LinkModel[];

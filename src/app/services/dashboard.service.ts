@@ -14,14 +14,26 @@ export class DashboardService {
 
   /**
    * Loads the dashboard data
+   *
+   * @returns An observable of DashboardModel
    */
   getDashboard(): Observable<DashboardModel> {
+
+    // Example data
     return of({
-      navbar: [
-        { label: 'Heroicons', url: 'https://heroicons.com/', icon: 'link' }
+      top: [
+        { label: 'Localhost', url: 'http://localhost:4200/', icon: 'home' },
+        { label: 'Github', url: 'https://github.com/heinrich-hx', icon: 'codeBracket' }
       ],
-      top: [],
-      panels: [],
+      panels: [
+        {
+          label: 'Resources',
+          links: [
+            { label: 'CSS', url: 'https://tailwindcss.com/', icon: 'codeBracket'},
+            { label: 'Icons', url: 'https://heroicons.com/', icon: 'link' }
+          ]
+        }
+      ],
     });
   }
 }

@@ -4,10 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-container',
   standalone: true,
   host: {
-    class: 'container mx-auto px-4'
+    class: 'block container mx-auto px-4'
   },
-  templateUrl: './container.component.html',
-  styleUrl: './container.component.css'
+  templateUrl: './container.component.html'
 })
 export class ContainerComponent {
 
