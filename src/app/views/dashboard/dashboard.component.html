@@ -1,9 +1,11 @@
-<button type="button" routerLink="/settings">
-  <app-icon icon="cog"></app-icon>
-</button>
-<button type="button" routerLink="/user">
-  <app-icon icon="user"></app-icon>
-</button>
+<div class="flex justify-end">
+  <button type="button" class="m-1" routerLink="/settings">
+    <app-icon icon="cog"></app-icon>
+  </button>
+  <button type="button" class="m-1" routerLink="/user">
+    <app-icon icon="user"></app-icon>
+  </button>
+</div>
 
 <app-container>
   <ng-container *ngIf="$dashboard | async; let dashboard">

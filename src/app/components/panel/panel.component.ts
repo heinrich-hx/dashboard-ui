@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
   selector: 'app-panel',
   standalone: true,
   host: {
-    class: 'border border-solid border-black'
+    class: 'block p-3 border border-solid border-zinc-50 rounded'
   },
-  templateUrl: './panel.component.html',
-  styleUrl: './panel.component.css'
+  templateUrl: './panel.component.html'
 })
 export class PanelComponent { }

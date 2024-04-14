@@ -7,8 +7,10 @@ import { IconEnum } from './icon.enum';
 @Component({
   selector: 'app-icon',
   standalone: true,
-  templateUrl: './icon.component.html',
-  styleUrl: './icon.component.css'
+  host: {
+    class: 'inline-block h-6 w-6'
+  },
+  templateUrl: './icon.component.html'
 })
 export class IconComponent implements OnChanges {
 
