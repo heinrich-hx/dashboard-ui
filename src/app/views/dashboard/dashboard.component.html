@@ -1,0 +1,32 @@
+<div class="flex justify-end m-4 gap-4">
+  <button type="button" routerLink="/settings">
+    <app-icon icon="cog"></app-icon>
+  </button>
+  <button type="button" routerLink="/user">
+    <app-icon icon="user"></app-icon>
+  </button>
+</div>
+
+<app-container>
+  <ng-container *ngIf="$dashboard | async; let dashboard">
+
+    <div class="flex gap-4">
+    <app-link *ngFor="let link of dashboard.top" [link]="link"></app-link>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-6">
+      <app-panel *ngFor="let panel of dashboard.panels" class="">
+        <app-heading [level]="2">
+          <app-icon *ngIf="panel.icon" [icon]="panel.icon" class="align-middle mr-2 text-red-500"></app-icon>
+          <span class="align-middle">{{ panel.label }}</span>
+        </app-heading>
+        <ul class="list-disc ml-4">
+          <li *ngFor="let link of panel.links">
+            <app-link [link]="link"></app-link>
+          </li>
+        </ul>
+      </app-panel>
+    </div>
+
+  </ng-container>
+</app-container>
