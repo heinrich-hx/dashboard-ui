@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { ConfigService } from './services/config.service';
+import { AuthenticationService } from './services/authentication.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,6 +17,17 @@ export const appConfig: ApplicationConfig = {
       deps: [ConfigService, HttpClient],
       useFactory: (configService: ConfigService, http: HttpClient) => {
         return () => ConfigService.loadConfig(configService, http);
+      }
+    },
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [AuthenticationService],
+      useFactory: (authService: AuthenticationService) => {
+        return () => new Promise<void>((resolve, reject) => {
+          authService.initialize();
+          resolve();
+        });
       }
     }
   ]

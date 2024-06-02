@@ -20,13 +20,19 @@ export class UserComponent {
    */
   model: UserModel = { };
 
-  constructor(authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService) { }
 
   /**
    * Sends the log-in request
    */
   logIn(): void {
-    console.log(this.model);
+    if (!this.model.name || !this.model.password) {
+      return;
+    }
+    this.authService.logIn(this.model.name, this.model.password).subscribe({
+      next: () => console.log('Log-in OK'),
+      error: error => console.error(error)
+    });
   }
 
 }

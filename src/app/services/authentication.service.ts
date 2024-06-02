@@ -20,11 +20,12 @@ export class AuthenticationService {
   initialize(): void {
     // https://aws-amplify.github.io/amplify-js/api/variables/aws_amplify.index.Amplify.html
     Amplify.configure({
-      Auth: undefined /* {
-        awsRegion: '',
-        userPoolId: '',
-        userPoolClientId: ''
-      } */
+      Auth: {
+        Cognito: {
+          userPoolId: '',
+          userPoolClientId: ''
+        }
+      }
     });
   }
 
