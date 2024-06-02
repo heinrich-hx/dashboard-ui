@@ -20,8 +20,6 @@ export class DashboardService {
    */
   getDashboard(): Observable<DashboardModel> {
 
-    console.log(this.configService.getConfig());
-
     // Example data
     return of({
       top: [

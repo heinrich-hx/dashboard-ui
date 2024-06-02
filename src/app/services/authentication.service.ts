@@ -17,13 +17,14 @@ export class AuthenticationService {
   /**
    * Initializes the service
    */
-  initialize(): void {
+  static initialize(configService: ConfigService): void {
+    console.log(configService.getConfig());
     // https://aws-amplify.github.io/amplify-js/api/variables/aws_amplify.index.Amplify.html
     Amplify.configure({
       Auth: {
         Cognito: {
-          userPoolId: '',
-          userPoolClientId: ''
+          userPoolId: configService.getConfig()?.cognito.userPoolId || '',
+          userPoolClientId: configService.getConfig()?.cognito.appClientId || ''
         }
       }
     });

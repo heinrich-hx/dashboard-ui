@@ -16,18 +16,8 @@ export const appConfig: ApplicationConfig = {
       multi: true,
       deps: [ConfigService, HttpClient],
       useFactory: (configService: ConfigService, http: HttpClient) => {
-        return () => ConfigService.loadConfig(configService, http);
-      }
-    },
-    {
-      provide: APP_INITIALIZER,
-      multi: true,
-      deps: [AuthenticationService],
-      useFactory: (authService: AuthenticationService) => {
-        return () => new Promise<void>((resolve, reject) => {
-          authService.initialize();
-          resolve();
-        });
+        return () => ConfigService.loadConfig(configService, http)
+        .then(() => AuthenticationService.initialize(configService));
       }
     }
   ]

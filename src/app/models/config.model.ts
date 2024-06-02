@@ -6,7 +6,10 @@ export interface ConfigModel {
   /**
    * User authentication
    */
-  authenticationApi: string;
+  cognito: {
+    userPoolId: string;
+    appClientId: string;
+  };
 
   /**
    * Dashboard data source
