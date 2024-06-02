@@ -1,4 +1,19 @@
 <app-container class="my-24">
-  <app-icon icon="rocket" class="text-red-500 text-4xl"></app-icon>
-  <p>Coming soon...</p>
+
+  <div class="mx-4 my-2">
+    <label for="username">Username *</label><br>
+    <input id="username" type="text" class="text-zinc-950" [(ngModel)]="model.name" required />
+  </div>
+
+  <div class="mx-4 my-2">
+    <label for="password">Password *</label><br>
+    <input id="password" type="password" class="text-zinc-950" [(ngModel)]="model.password" required />
+  </div>
+
+  <div class="mx-4 my-2">
+    <button class="bg-sky-700 px-4 py-1" type="button" (click)="logIn()">
+      Log in
+    </button>
+  </div>
+
 </app-container>

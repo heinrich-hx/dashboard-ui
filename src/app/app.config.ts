@@ -1,9 +1,9 @@
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { ConfigService } from './services/config.service';
-import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,9 +13,9 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_INITIALIZER,
       multi: true,
-      deps: [ConfigService],
-      useFactory: (appConfigService: ConfigService) => {
-        return () => appConfigService.loadAppConfig();
+      deps: [ConfigService, HttpClient],
+      useFactory: (configService: ConfigService, http: HttpClient) => {
+        return () => ConfigService.loadConfig(configService, http);
       }
     }
   ]

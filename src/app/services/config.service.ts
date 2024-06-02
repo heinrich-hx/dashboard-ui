@@ -11,22 +11,22 @@ import { ConfigModel } from '../models/config.model';
 })
 export class ConfigService {
 
+  /**
+   * The config object
+   */
   private config?: ConfigModel;
-
-  constructor(private http: HttpClient) { }
 
   /**
    * Loads the config.json file
    *
-   * TODO make it unaccessable
-   *
+   * @param configService ConfigService
+   * @param httpClient HttpClient
    * @returns A Promise
    */
-  loadAppConfig(): Promise<void> {
-    return firstValueFrom(this.http.get<ConfigModel>('/config.json').pipe(
+  static loadConfig(configService: ConfigService, httpClient: HttpClient): Promise<void> {
+    return firstValueFrom(httpClient.get<ConfigModel>('/config.json').pipe(
       map(data => {
-        this.config = data;
-        console.log(data);
+        configService.config = data;
       })
     ));
   }

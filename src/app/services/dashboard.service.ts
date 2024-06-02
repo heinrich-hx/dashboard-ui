@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { DashboardModel } from '../models/dashboard.model';
+import { ConfigService } from './config.service';
 
 /**
  * DashboardService
@@ -10,7 +11,7 @@ import { DashboardModel } from '../models/dashboard.model';
 })
 export class DashboardService {
 
-  constructor() { }
+  constructor(private configService: ConfigService) { }
 
   /**
    * Loads the dashboard data
@@ -18,6 +19,8 @@ export class DashboardService {
    * @returns An observable of DashboardModel
    */
   getDashboard(): Observable<DashboardModel> {
+
+    console.log(this.configService.getConfig());
 
     // Example data
     return of({
