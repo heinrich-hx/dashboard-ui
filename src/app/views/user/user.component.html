@@ -1,24 +1,36 @@
 <app-container class="my-24">
 
-  <!-- TODO add form -->
+  <ng-container *ngIf="currentUser; else showLoginForm">
+    {{ currentUser }}
+    <div class="mx-4 my-2">
+      <button class="bg-sky-700 px-4 py-1" type="button" (click)="logOut()">
+        Log out
+      </button>
+    </div>
+  </ng-container>
 
-  <div class="mx-4 my-2">
-    <label for="username">Username *</label><br>
-    <input id="username" type="text" class="text-zinc-950" [(ngModel)]="model.name" required />
-  </div>
+  <ng-template #showLoginForm>
+    <!-- TODO add form -->
 
-  <div class="mx-4 my-2">
-    <label for="password">Password *</label><br>
-    <input id="password" type="password" class="text-zinc-950" [(ngModel)]="model.password" required />
-  </div>
+    <div class="mx-4 my-2">
+      <label for="username">Username *</label><br>
+      <input id="username" type="text" class="text-zinc-950" [(ngModel)]="loginModel.name" required />
+    </div>
 
-  <div class="mx-4 my-2">
-    <button class="bg-sky-700 px-4 py-1" type="button" (click)="logIn()">
-      Log in
-    </button>
-    <button type="button" routerLink="/reset-password">
-      Reset password
-    </button>
-  </div>
+    <div class="mx-4 my-2">
+      <label for="password">Password *</label><br>
+      <input id="password" type="password" class="text-zinc-950" [(ngModel)]="loginModel.password" required />
+    </div>
+
+    <div class="mx-4 my-2">
+      <button class="bg-sky-700 px-4 py-1" type="button" (click)="logIn()">
+        Log in
+      </button>
+      <button type="button" routerLink="/reset-password">
+        Reset password
+      </button>
+    </div>
+
+  </ng-template>
 
 </app-container>

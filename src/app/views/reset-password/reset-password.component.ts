@@ -23,14 +23,26 @@ export class ResetPasswordComponent {
    * Requests a password reset
    */
   resetPassword(): void {
-
+    if (!this.model.name) {
+      return;
+    }
+    this.authService.resetPassword(this.model.name).subscribe({
+      next: () => console.log('OK'),
+      error: error => console.error(error)
+    });
   }
 
   /**
    * Confirms the reset
    */
   confirmResetPassword(): void {
-
+    if (!this.model.name || !this.model.confirmationCode || !this.model.password) {
+      return;
+    }
+    this.authService.confirmResetPassword(this.model.name, this.model.confirmationCode, this.model.password).subscribe({
+      next: () => console.log('OK'),
+      error: error => console.error(error)
+    });
   }
 
 }

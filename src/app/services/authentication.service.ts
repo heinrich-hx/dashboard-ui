@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Amplify } from 'aws-amplify';
-import { confirmResetPassword, resetPassword, signIn, signOut } from 'aws-amplify/auth';
+import { confirmResetPassword, getCurrentUser, resetPassword, signIn, signOut } from 'aws-amplify/auth';
 import { Observable, from, map } from 'rxjs';
 import { ConfigService } from './config.service';
 
@@ -45,9 +45,11 @@ export class AuthenticationService {
 
   /**
    * Checks the current session
+   *
+   * @returns The user name if signed in, otherwise an error
    */
-  isLoggedIn(): void {
-
+  getCurrentUser(): Observable<string> {
+    return from(getCurrentUser()).pipe(map(user => user.username));
   }
 
   /**
