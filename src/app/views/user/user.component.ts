@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { ContainerComponent } from '../../components/container/container.component';
 import { AuthenticationService } from '../../services/authentication.service';
-import { UserModel } from '../../models/user.model';
+import { CredentialsModel } from '../../models/credentials.model';
 
 /**
  * User profile
@@ -10,7 +11,7 @@ import { UserModel } from '../../models/user.model';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [ContainerComponent, FormsModule],
+  imports: [ContainerComponent, FormsModule, RouterLink],
   templateUrl: './user.component.html'
 })
 export class UserComponent {
@@ -18,7 +19,7 @@ export class UserComponent {
   /**
    * Form model
    */
-  model: UserModel = { };
+  model: CredentialsModel = { };
 
   constructor(private authService: AuthenticationService) { }
 

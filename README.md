@@ -11,7 +11,10 @@ First create the file `./public/config.json` with the following structure:
 ```json
 {
   "dashboardApi": "",
-  "authenticationApi": ""
+  "cognito": {
+    "userPoolId": "",
+    "appClientId": ""
+  }
 }
 ```
 
