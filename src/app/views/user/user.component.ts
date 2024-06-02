@@ -6,6 +6,7 @@ import { switchMap } from 'rxjs';
 import { ContainerComponent } from '../../components/container/container.component';
 import { AuthenticationService } from '../../services/authentication.service';
 import { CredentialsModel } from '../../models/credentials.model';
+import { IconComponent } from '../../components/icon/icon.component';
 
 /**
  * User profile
@@ -13,7 +14,7 @@ import { CredentialsModel } from '../../models/credentials.model';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [CommonModule, ContainerComponent, FormsModule, RouterLink],
+  imports: [CommonModule, ContainerComponent, FormsModule, IconComponent, RouterLink],
   templateUrl: './user.component.html'
 })
 export class UserComponent implements OnInit {

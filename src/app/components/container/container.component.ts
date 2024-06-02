@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Sets max-width according to the current breakpoint
+ */
 @Component({
   selector: 'app-container',
   standalone: true,
