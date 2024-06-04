@@ -4,6 +4,9 @@ import { ContainerComponent } from '../../components/container/container.compone
 import { CredentialsModel } from '../../models/credentials.model';
 import { AuthenticationService } from '../../services/authentication.service';
 
+/**
+ * A form for resetting the login password
+ */
 @Component({
   selector: 'app-reset-password',
   standalone: true,

@@ -1,6 +1,6 @@
 <ng-container *ngIf="link">
   <a [href]="link.url" target="_blank" class="inline-block space-x-1">
-    <app-icon *ngIf="link.icon" [icon]="link.icon" class="align-middle"></app-icon>
+    <db-icon *ngIf="link.icon" [icon]="link.icon" class="align-middle"></db-icon>
     <span class="align-middle">{{ link.label }}</span>
   </a>
 </ng-container>

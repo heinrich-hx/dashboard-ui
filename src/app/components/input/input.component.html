@@ -1,0 +1,6 @@
+<label [for]="name">
+  {{ label }}
+  <ng-container *ngIf="required"> *</ng-container>
+</label>
+<br>
+<input [id]="name" [name]="name" type="text" class="text-zinc-950" [required]="required"/>

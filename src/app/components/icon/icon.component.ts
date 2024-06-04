@@ -5,7 +5,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
  * Icon component
  */
 @Component({
-  selector: 'app-icon',
+  selector: 'db-icon',
   standalone: true,
   imports: [NgClass, NgIf],
   host: {

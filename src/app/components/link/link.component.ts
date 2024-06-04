@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
  * Displays a link
  */
 @Component({
-  selector: 'app-link',
+  selector: 'db-link',
   standalone: true,
   imports: [CommonModule, IconComponent],
   host: {

@@ -1,8 +1,8 @@
-<app-container class="my-24">
+<db-container class="my-24">
 
   <div class="flex justify-between max-w-md mx-auto" *ngIf="currentUser; else showLoginForm">
     <div>
-      <app-icon icon="user" class="text-red-500 text-4xl"></app-icon>
+      <db-icon icon="user" class="text-red-500 text-4xl"></db-icon>
       {{ currentUser }}
     </div>
     <div class="mx-4 my-2">
@@ -19,12 +19,12 @@
 
       <div class="mx-4 my-2">
         <label for="username">Username *</label><br>
-        <input id="username" type="text" class="text-zinc-950" [(ngModel)]="loginModel.name" required />
+        <input id="username" name="username" type="text" class="text-zinc-950" [(ngModel)]="loginModel.name" required />
       </div>
 
       <div class="mx-4 my-2">
         <label for="password">Password *</label><br>
-        <input id="password" type="password" class="text-zinc-950" [(ngModel)]="loginModel.password" required />
+        <input id="password" name="password" type="password" class="text-zinc-950" [(ngModel)]="loginModel.password" required />
       </div>
 
       <div class="mx-4 my-2">
@@ -39,4 +39,4 @@
     </form>
   </ng-template>
 
-</app-container>
+</db-container>
