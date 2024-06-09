@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IconComponent } from '../../components/icon/icon.component';
 import { ContainerComponent } from '../../components/container/container.component';
 import { LinkEditorComponent } from '../../components/link-editor/link-editor.component';
 
@@ -9,7 +8,7 @@ import { LinkEditorComponent } from '../../components/link-editor/link-editor.co
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [ContainerComponent, IconComponent, LinkEditorComponent],
+  imports: [ContainerComponent, LinkEditorComponent],
   templateUrl: './settings.component.html'
 })
 export class SettingsComponent {

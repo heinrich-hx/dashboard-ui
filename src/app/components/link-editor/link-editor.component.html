@@ -1,4 +1,12 @@
-<db-input label="Label" name="label"></db-input>
-<db-input label="URL" name="url"></db-input>
-<db-button>Save</db-button>
-<db-button>Cancel</db-button>
+<ng-container *ngIf="!editLink; else showEditLink">
+  <span>{{ link?.label }}</span>
+  <db-button (click)="edit()">Edit</db-button>
+</ng-container>
+
+<ng-template #showEditLink>
+  <db-input label="Icon" name="icon" [model]="editLink?.icon"></db-input>
+  <db-input label="Label" name="label" [model]="editLink?.label"></db-input>
+  <db-input label="URL" name="url" [model]="editLink?.url"></db-input>
+  <db-button (click)="cancel()">Cancel</db-button>
+  <db-button (click)="save()">Save</db-button>
+</ng-template>
