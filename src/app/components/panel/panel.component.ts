@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   selector: 'db-panel',
   standalone: true,
   host: {
-    class: 'block p-3 border border-solid border-zinc-50 rounded'
+    class: 'block p-3 bg-zinc-800 rounded'
   },
   templateUrl: './panel.component.html'
 })

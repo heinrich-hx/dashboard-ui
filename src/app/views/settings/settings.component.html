@@ -1,3 +1,6 @@
 <db-container class="my-24">
-  <db-link-editor [link]="{ label: 'Example', url: '/example', icon: 'example' }"></db-link-editor>
+  <div>
+    <db-link-editor [(link)]="model"></db-link-editor>
+  </div>
+  <db-button (click)="test()">Test</db-button>
 </db-container>

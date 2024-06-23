@@ -32,54 +32,54 @@ export class DashboardService {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
-            { label: 'Icons', url: 'https://fontawesome.com/search' },
-            { label: 'Icons', url: 'https://fontawesome.com/search' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
-            { label: 'Icons', url: 'https://fontawesome.com/search' },
-            { label: 'Icons', url: 'https://fontawesome.com/search' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
-            { label: 'Icons', url: 'https://fontawesome.com/search' },
-            { label: 'Icons', url: 'https://fontawesome.com/search' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
-            { label: 'Icons', url: 'https://fontawesome.com/search' },
-            { label: 'Icons', url: 'https://fontawesome.com/search' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
-            { label: 'Icons', url: 'https://fontawesome.com/search' },
-            { label: 'Icons', url: 'https://fontawesome.com/search' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
           ]
         },
         {
           label: 'Resources',
           icon: 'code',
           links: [
-            { label: 'CSS', url: 'https://tailwindcss.com/docs'},
-            { label: 'Icons', url: 'https://fontawesome.com/search' },
-            { label: 'Icons', url: 'https://fontawesome.com/search' }
+            { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+            { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
           ]
         }
       ],

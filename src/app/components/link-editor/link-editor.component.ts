@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
 import { LinkModel } from '../../models/link.model';
-import { CommonModule } from '@angular/common';
 
 /**
  * Link editor
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'db-link-editor',
   standalone: true,
-  imports: [ButtonComponent, CommonModule, IconComponent, InputComponent],
+  imports: [ButtonComponent, IconComponent, InputComponent, NgIf],
   templateUrl: './link-editor.component.html'
 })
 export class LinkEditorComponent {
@@ -21,6 +21,12 @@ export class LinkEditorComponent {
    */
   @Input()
   link?: LinkModel;
+
+  /**
+   * Link change event
+   */
+  @Output()
+  linkChange = new EventEmitter<LinkModel>();
 
   /**
    * Link instance for editing
@@ -45,8 +51,9 @@ export class LinkEditorComponent {
    * Saves the changes
    */
   save(): void {
+    this.link = this.editLink;
     this.editLink = undefined;
-    // TODO save the changes
+    this.linkChange.emit(this.link);
   }
 
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 /**
@@ -20,27 +20,37 @@ export class InputComponent {
    * Label
    */
   @Input()
-  label?: string;
+  label: string = '';
 
   /**
    * Name
    */
   @Input()
-  name?: string;
+  name: string = '';
 
   /**
-   * NgModel
+   * Model
    */
   @Input()
-  model?: string;
+  model: string = '';
 
-  // @Output()
-  // modelChange = new EventEmitter<string>();
+  /**
+   * Model change event
+   */
+  @Output()
+  modelChange = new EventEmitter<string>();
 
   /**
    * Required
    */
   @Input()
   required = false;
+
+  /**
+   * Event handler for internal input element
+   */
+  onModelChange(value: string): void {
+    this.modelChange.emit(value);
+  }
 
 }
