@@ -1,12 +1,21 @@
-<ng-container *ngIf="editLink; else showLink">
-  <db-input label="Icon" name="icon" [(model)]="editLink.icon"></db-input>
-  <db-input label="Label" name="label" [(model)]="editLink.label"></db-input>
-  <db-input label="URL" name="url" [(model)]="editLink.url"></db-input>
-  <db-button (click)="cancel()">Cancel</db-button>
-  <db-button (click)="save()">Save</db-button>
-</ng-container>
+@if (editLink) {
 
-<ng-template #showLink>
-  <span>{{ link?.label }}</span>
-  <db-button (click)="edit()">Edit</db-button>
-</ng-template>
+  <db-input class="flex-1" label="Icon" name="icon" [(model)]="editLink.icon"></db-input>
+  <db-input class="flex-1" label="Label" name="label" [(model)]="editLink.label"></db-input>
+  <db-input class="flex-1" label="URL" name="url" [(model)]="editLink.url"></db-input>
+  <db-button class="flex-none" (click)="cancel()">
+    <db-icon icon="xmark"></db-icon>
+  </db-button>
+  <db-button class="flex-none" (click)="save()">
+    <db-icon icon="check"></db-icon>
+  </db-button>
+
+} @else {
+
+  <div class="flex-1"> {{ link?.label }} </div>
+  <div class="flex-1"> {{ link?.url }} </div>
+  <db-button  class="flex-none" (click)="edit()">
+    <db-icon icon="pen-to-square"></db-icon>
+  </db-button>
+
+}

@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
 import { InputComponent } from '../input/input.component';
@@ -10,8 +9,11 @@ import { LinkModel } from '../../models/link.model';
  */
 @Component({
   selector: 'db-link-editor',
-  imports: [ButtonComponent, IconComponent, InputComponent, NgIf],
-  templateUrl: './link-editor.component.html'
+  imports: [ButtonComponent, IconComponent, InputComponent],
+  templateUrl: './link-editor.component.html',
+  host: {
+    class: 'block flex items-center'
+  },
 })
 export class LinkEditorComponent {
 
