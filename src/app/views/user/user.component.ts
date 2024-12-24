@@ -13,7 +13,6 @@ import { IconComponent } from '../../components/icon/icon.component';
  */
 @Component({
   selector: 'app-user',
-  standalone: true,
   imports: [CommonModule, ContainerComponent, FormsModule, IconComponent, RouterLink],
   templateUrl: './user.component.html'
 })

@@ -15,7 +15,6 @@ import { HeadingComponent } from '../../components/heading/heading.component';
  */
 @Component({
   selector: 'app-dashboard',
-  standalone: true,
   imports: [
     CommonModule,
     ContainerComponent,

@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
  */
 @Component({
   selector: 'db-link',
-  standalone: true,
   imports: [CommonModule, IconComponent],
   host: {
     class: 'inline-block'

@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
  */
 @Component({
   selector: 'db-panel',
-  standalone: true,
   host: {
     class: 'block p-3 bg-zinc-800 rounded'
   },

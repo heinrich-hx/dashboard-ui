@@ -9,7 +9,6 @@ import { ButtonComponent } from '../../components/button/button.component';
  */
 @Component({
   selector: 'app-settings',
-  standalone: true,
   imports: [ButtonComponent, ContainerComponent, LinkEditorComponent],
   templateUrl: './settings.component.html'
 })

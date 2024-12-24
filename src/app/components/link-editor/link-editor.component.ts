@@ -10,7 +10,6 @@ import { LinkModel } from '../../models/link.model';
  */
 @Component({
   selector: 'db-link-editor',
-  standalone: true,
   imports: [ButtonComponent, IconComponent, InputComponent, NgIf],
   templateUrl: './link-editor.component.html'
 })

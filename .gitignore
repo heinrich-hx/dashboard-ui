@@ -43,3 +43,4 @@ Thumbs.db
 
 # App custom
 config.json
+/.vscode

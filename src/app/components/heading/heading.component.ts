@@ -6,7 +6,6 @@ import { Component, Input } from '@angular/core';
  */
 @Component({
   selector: 'db-heading',
-  standalone: true,
   imports: [CommonModule],
   templateUrl: './heading.component.html'
 })

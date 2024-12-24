@@ -6,7 +6,6 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
  */
 @Component({
   selector: 'db-icon',
-  standalone: true,
   imports: [NgClass, NgIf],
   host: {
     class: 'inline-block'

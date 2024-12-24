@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'db-button',
-  standalone: true,
   imports: [],
   templateUrl: './button.component.html',
   host: {

@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
  */
 @Component({
   selector: 'db-input',
-  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './input.component.html',
   host: {
