@@ -3,10 +3,10 @@
   <db-input class="flex-1" label="Icon" name="icon" [(model)]="editLink.icon"></db-input>
   <db-input class="flex-1" label="Label" name="label" [(model)]="editLink.label"></db-input>
   <db-input class="flex-1" label="URL" name="url" [(model)]="editLink.url"></db-input>
-  <db-button class="flex-none" (click)="cancel()">
+  <db-button class="flex-none" type="blank" (click)="cancel()">
     <db-icon icon="xmark"></db-icon>
   </db-button>
-  <db-button class="flex-none" (click)="save()">
+  <db-button class="flex-none" type="blank" (click)="save()">
     <db-icon icon="check"></db-icon>
   </db-button>
 
@@ -14,7 +14,7 @@
 
   <div class="flex-1"> {{ link?.label }} </div>
   <div class="flex-1"> {{ link?.url }} </div>
-  <db-button  class="flex-none" (click)="edit()">
+  <db-button class="flex-none" (click)="edit()" type="blank">
     <db-icon icon="pen-to-square"></db-icon>
   </db-button>
 
