@@ -21,11 +21,6 @@ export class SettingsComponent implements OnInit {
    */
   dashboard?: DashboardModel;
 
-  /**
-   * Link
-   */
-  model: LinkModel = { label: 'Example', url: '/example', icon: 'example' };
-
   constructor(
     private readonly dashboardService: DashboardService,
     private readonly destroyRef: DestroyRef
@@ -43,7 +38,12 @@ export class SettingsComponent implements OnInit {
   /**
    * Saves dashboard
    */
-  saveDashboard(): void {
+  saveDashboard(event: LinkModel): void {
+    console.log(event);
+    console.log(this.dashboard);
+
+    // TODO update dashboard
+
     if (this.dashboard) {
       this.dashboardService.saveDashboard(this.dashboard)
         .pipe(takeUntilDestroyed(this.destroyRef))

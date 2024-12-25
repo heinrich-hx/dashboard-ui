@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { v4 as uuidv4 } from 'uuid';
 import { DashboardModel } from '../models/dashboard.model';
 import { ConfigService } from './config.service';
+import { LinkModel } from '../models/link.model';
 
 /**
  * DashboardService
@@ -16,63 +18,63 @@ export class DashboardService {
    */
   dashboard: DashboardModel = {
     top: [
-      { label: 'Localhost', url: 'http://localhost:4200/', icon: 'home' },
-      { label: 'Github', url: 'https://github.com/heinrich-hx', icon: 'code' },
-      { label: 'NPM', url: 'https://www.npmjs.com/', icon: 'cubes'}
+      { uuid: uuidv4(), label: 'Localhost', url: 'http://localhost:4200/', icon: 'home' },
+      { uuid: uuidv4(), label: 'Github', url: 'https://github.com/heinrich-hx', icon: 'code' },
+      { uuid: uuidv4(), label: 'NPM', url: 'https://www.npmjs.com/', icon: 'cubes'}
     ],
     panels: [
       {
         label: 'Resources',
         icon: 'code',
         links: [
-          { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
+          { uuid: uuidv4(), label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
         ]
       },
       {
         label: 'Resources',
         icon: 'code',
         links: [
-          { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
+          { uuid: uuidv4(), label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
         ]
       },
       {
         label: 'Resources',
         icon: 'code',
         links: [
-          { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
+          { uuid: uuidv4(), label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
         ]
       },
       {
         label: 'Resources',
         icon: 'code',
         links: [
-          { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
+          { uuid: uuidv4(), label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
         ]
       },
       {
         label: 'Resources',
         icon: 'code',
         links: [
-          { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
+          { uuid: uuidv4(), label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
         ]
       },
       {
         label: 'Resources',
         icon: 'code',
         links: [
-          { label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
-          { label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
+          { uuid: uuidv4(), label: 'CSS', url: 'https://tailwindcss.com/docs', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' },
+          { uuid: uuidv4(), label: 'Icons', url: 'https://fontawesome.com/search', icon: 'code' }
         ]
       }
     ],
@@ -98,5 +100,15 @@ export class DashboardService {
   saveDashboard(dashboard: DashboardModel): Observable<DashboardModel> {
     this.dashboard = JSON.parse(JSON.stringify(dashboard));
     return of(this.dashboard);
+  }
+
+  /**
+   * Saves a single link based on its UUID
+   *
+   * @param link LinkModel
+   * @returns LinkModel
+   */
+  saveLink(link: LinkModel): Observable<LinkModel> {
+    return of(link);
   }
 }

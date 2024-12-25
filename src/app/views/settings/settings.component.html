@@ -1,5 +1,5 @@
 <db-container class="my-24">
-  <div>
-    <db-link-editor [(link)]="model" (linkChange)="saveDashboard()"></db-link-editor>
-  </div>
+  @for (item of dashboard?.top; track item.uuid) {
+    <db-link-editor [link]="item" (linkChange)="saveDashboard($event)"></db-link-editor>
+  }
 </db-container>

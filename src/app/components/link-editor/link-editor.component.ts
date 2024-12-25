@@ -1,8 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, Output } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
 import { LinkModel } from '../../models/link.model';
+import { DashboardService } from '../../services/dashboard.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 /**
  * Link editor
@@ -24,7 +26,7 @@ export class LinkEditorComponent {
   link?: LinkModel;
 
   /**
-   * Link change event
+   * Link change event: Triggered only when the link was saved successfully.
    */
   @Output()
   linkChange = new EventEmitter<LinkModel>();
@@ -33,6 +35,11 @@ export class LinkEditorComponent {
    * Link instance for editing
    */
   editLink?: LinkModel;
+
+  constructor(
+    private readonly dashboardService: DashboardService,
+    private readonly destroyRef: DestroyRef
+  ) { }
 
   /**
    * Enables edit mode
@@ -52,9 +59,16 @@ export class LinkEditorComponent {
    * Saves the changes
    */
   save(): void {
-    this.link = this.editLink;
-    this.editLink = undefined;
-    this.linkChange.emit(this.link);
+    if (!this.editLink) {
+      return;
+    }
+    this.dashboardService.saveLink(this.editLink)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(savedLink => {
+        this.link = this.editLink;
+        this.editLink = undefined;
+        this.linkChange.emit(this.link);
+      });
   }
 
 }

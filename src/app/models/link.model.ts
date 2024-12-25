@@ -4,6 +4,11 @@
 export interface LinkModel {
 
   /**
+   * UUID
+   */
+  uuid: string;
+
+  /**
    * URL
    */
   url: string;
