@@ -109,12 +109,19 @@ export class DashboardService {
   }
 
   /**
-   * Saves a single link based on its UUID
+   * Saves a link based on its UUID
    *
    * @param link LinkModel
    * @returns LinkModel
    */
   saveLink(link: LinkModel): Observable<LinkModel> {
     return of(link);
+  }
+
+  /**
+   * Deletes a link based in its UUID
+   */
+  deleteLink(uuid: string): Observable<void> {
+    return of();
   }
 }

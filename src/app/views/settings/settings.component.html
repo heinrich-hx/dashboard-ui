@@ -1,7 +1,9 @@
 <db-container class="my-24">
+
   <db-button type="blank" class="mx-0" (click)="navigateBack()">
     <db-icon icon="arrow-left"></db-icon>
   </db-button>
+
   @for (item of dashboard?.top; track item.uuid) {
     <db-link-editor [link]="item" (linkChange)="onLinkSaved($event)"></db-link-editor>
   }
@@ -19,4 +21,5 @@
       }
     </db-panel>
   }
+
 </db-container>

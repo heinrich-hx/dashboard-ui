@@ -17,6 +17,9 @@
   <div class="flex items-center">
     <div class="flex-1"> {{ link?.label }} </div>
     <div class="flex-1"> {{ link?.url }} </div>
+    <db-button class="flex-none" (click)="remove()" type="blank">
+      <db-icon icon="trash"></db-icon>
+    </db-button>
     <db-button class="flex-none" (click)="edit()" type="blank">
       <db-icon icon="pen-to-square"></db-icon>
     </db-button>
