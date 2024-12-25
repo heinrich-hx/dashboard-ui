@@ -1,6 +1,5 @@
 <db-container class="my-24">
   <div>
-    <db-link-editor [(link)]="model"></db-link-editor>
+    <db-link-editor [(link)]="model" (linkChange)="saveDashboard()"></db-link-editor>
   </div>
-  <db-button (click)="test()">Test</db-button>
 </db-container>

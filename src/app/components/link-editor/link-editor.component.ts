@@ -12,7 +12,7 @@ import { LinkModel } from '../../models/link.model';
   imports: [ButtonComponent, IconComponent, InputComponent],
   templateUrl: './link-editor.component.html',
   host: {
-    class: 'block flex items-center'
+    class: 'block'
   },
 })
 export class LinkEditorComponent {
