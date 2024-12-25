@@ -35,7 +35,7 @@ export class LinkEditorComponent {
    * Link remove event: Triggered only when the link was removed successfully.
    */
   @Output()
-  linkRemove = new EventEmitter<void>();
+  linkRemove = new EventEmitter<string>();
 
   /**
    * Link instance for editing
@@ -55,7 +55,7 @@ export class LinkEditorComponent {
   }
 
    /**
-   * Removes link
+   * Removes link and emits the UUID
    */
    remove(): void {
     if (!this.link) {
@@ -64,7 +64,7 @@ export class LinkEditorComponent {
     this.dashboardService.deleteLink(this.link.uuid)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
-        this.linkRemove.emit();
+        this.linkRemove.emit(this.link?.uuid);
       });
   }
 

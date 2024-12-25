@@ -72,6 +72,29 @@ export class SettingsComponent implements OnInit {
   }
 
   /**
+   * Removes a link from the local dashboard record
+   *
+   * @param uuid UUID of the link
+   */
+  onLinkRemoved(uuid: string): void {console.log(uuid);
+    if (!this.dashboard) {
+      return;
+    }
+    let i = this.dashboard.top.findIndex(link => link.uuid === uuid);
+    if (i >= 0) {
+      this.dashboard.top.splice(i, 1);
+      return;
+    }
+    for (let panel of this.dashboard.panels) {
+      i = panel.links.findIndex(link => link.uuid === uuid);
+      if (i >= 0) {
+        panel.links.splice(i, 1);
+        return;
+      }
+    }
+  }
+
+  /**
    * Saves dashboard
    */
   saveDashboard(): void {

@@ -5,7 +5,11 @@
   </db-button>
 
   @for (item of dashboard?.top; track item.uuid) {
-    <db-link-editor [link]="item" (linkChange)="onLinkSaved($event)"></db-link-editor>
+    <db-link-editor
+      [link]="item"
+      (linkChange)="onLinkSaved($event)"
+      (linkRemove)="onLinkRemoved($event)">
+    </db-link-editor>
   }
 
   @for (panel of dashboard?.panels; track panel.uuid) {
@@ -17,7 +21,11 @@
         <span class="align-middle">{{ panel.label }}</span>
       </db-heading>
       @for (link of panel.links; track link.uuid) {
-        <db-link-editor [link]="link" (linkChange)="onLinkSaved($event)"></db-link-editor>
+        <db-link-editor
+          [link]="link"
+          (linkChange)="onLinkSaved($event)"
+          (linkRemove)="onLinkRemoved($event)">
+        </db-link-editor>
       }
     </db-panel>
   }

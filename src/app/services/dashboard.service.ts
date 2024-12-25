@@ -121,7 +121,7 @@ export class DashboardService {
   /**
    * Deletes a link based in its UUID
    */
-  deleteLink(uuid: string): Observable<void> {
-    return of();
+  deleteLink(uuid: string): Observable<boolean> {
+    return of(true);
   }
 }
