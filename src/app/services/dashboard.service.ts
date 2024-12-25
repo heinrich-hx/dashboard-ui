@@ -24,6 +24,7 @@ export class DashboardService {
     ],
     panels: [
       {
+        uuid: uuidv4(),
         label: 'Resources',
         icon: 'code',
         links: [
@@ -33,6 +34,7 @@ export class DashboardService {
         ]
       },
       {
+        uuid: uuidv4(),
         label: 'Resources',
         icon: 'code',
         links: [
@@ -42,6 +44,7 @@ export class DashboardService {
         ]
       },
       {
+        uuid: uuidv4(),
         label: 'Resources',
         icon: 'code',
         links: [
@@ -51,6 +54,7 @@ export class DashboardService {
         ]
       },
       {
+        uuid: uuidv4(),
         label: 'Resources',
         icon: 'code',
         links: [
@@ -60,6 +64,7 @@ export class DashboardService {
         ]
       },
       {
+        uuid: uuidv4(),
         label: 'Resources',
         icon: 'code',
         links: [
@@ -69,6 +74,7 @@ export class DashboardService {
         ]
       },
       {
+        uuid: uuidv4(),
         label: 'Resources',
         icon: 'code',
         links: [

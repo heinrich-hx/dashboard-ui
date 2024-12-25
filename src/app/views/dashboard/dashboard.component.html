@@ -15,7 +15,7 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-6">
-      <db-panel *ngFor="let panel of dashboard.panels" class="">
+      <db-panel *ngFor="let panel of dashboard.panels">
         <db-heading [level]="2">
           <db-icon *ngIf="panel.icon" [icon]="panel.icon" class="align-middle mr-2 text-red-500"></db-icon>
           <span class="align-middle">{{ panel.label }}</span>

@@ -1,17 +1,29 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, DestroyRef, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ContainerComponent } from '../../components/container/container.component';
 import { LinkEditorComponent } from '../../components/link-editor/link-editor.component';
 import { DashboardService } from '../../services/dashboard.service';
 import { DashboardModel } from '../../models/dashboard.model';
 import { LinkModel } from '../../models/link.model';
+import { ButtonComponent } from '../../components/button/button.component';
+import { IconComponent } from '../../components/icon/icon.component';
+import { PanelComponent } from '../../components/panel/panel.component';
+import { HeadingComponent } from '../../components/heading/heading.component';
 
 /**
  * The dashboard editor
  */
 @Component({
   selector: 'app-settings',
-  imports: [ContainerComponent, LinkEditorComponent],
+  imports: [
+    ButtonComponent,
+    ContainerComponent,
+    HeadingComponent,
+    IconComponent,
+    LinkEditorComponent,
+    PanelComponent
+  ],
   templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit {
@@ -23,7 +35,8 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private readonly dashboardService: DashboardService,
-    private readonly destroyRef: DestroyRef
+    private readonly destroyRef: DestroyRef,
+    private readonly location: Location
   ) { }
 
   /**
@@ -36,21 +49,47 @@ export class SettingsComponent implements OnInit {
   }
 
   /**
+   * Writes the updated link to the local dashboard record
+   *
+   * @param update LinkModel
+   */
+  onLinkSaved(update: LinkModel): void {
+    if (!this.dashboard) {
+      return;
+    }
+    let i = this.dashboard.top.findIndex(link => link.uuid === update.uuid);
+    if (i >= 0) {
+      this.dashboard.top[i] = update;
+      return;
+    }
+    for (let panel of this.dashboard.panels) {
+      i = panel.links.findIndex(link => link.uuid === update.uuid);
+      if (i >= 0) {
+        panel.links[i] = update;
+        return;
+      }
+    }
+  }
+
+  /**
    * Saves dashboard
    */
-  saveDashboard(event: LinkModel): void {
-    console.log(event);
-    console.log(this.dashboard);
-
-    // TODO update dashboard
-
-    if (this.dashboard) {
-      this.dashboardService.saveDashboard(this.dashboard)
-        .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe(dashboard => {
-          this.dashboard = dashboard;
-        });
+  saveDashboard(): void {
+    if (!this.dashboard) {
+      return;
     }
+    this.dashboardService.saveDashboard(this.dashboard)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(dashboard => {
+        this.dashboard = dashboard;
+      });
+  }
+
+  /**
+   * Navigate back
+   */
+  navigateBack(): void {
+    this.location.back();
   }
 
 }

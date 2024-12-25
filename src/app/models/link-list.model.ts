@@ -6,6 +6,11 @@ import { LinkModel } from './link.model';
 export interface LinkListModel {
 
   /**
+   * UUID
+   */
+  uuid: string;
+
+  /**
    * Label
    */
   label: string;
