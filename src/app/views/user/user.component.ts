@@ -9,6 +9,7 @@ import { CredentialsModel } from '../../models/credentials.model';
 import { IconComponent } from '../../components/icon/icon.component';
 import { ButtonComponent } from '../../components/button/button.component';
 import { InputComponent } from '../../components/input/input.component';
+import { PanelComponent } from '../../components/panel/panel.component';
 
 /**
  * User profile
@@ -22,7 +23,9 @@ import { InputComponent } from '../../components/input/input.component';
     FormsModule,
     IconComponent,
     InputComponent,
-    RouterLink],
+    PanelComponent,
+    RouterLink
+  ],
   templateUrl: './user.component.html'
 })
 export class UserComponent implements OnInit {

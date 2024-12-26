@@ -4,24 +4,24 @@
   </db-button>
 </div>
 
-<db-container class="my-24">
+<db-container class="my-24 max-w-xs">
 
-  <div class="flex justify-between max-w-md mx-auto" *ngIf="currentUser; else showLoginForm">
-    <div>
-      <db-icon icon="user" class="text-red-500 text-4xl"></db-icon>
+  <ng-container *ngIf="currentUser; else showLoginForm">
+    <db-panel class="flex justify-between items-center my-8">
+      <db-icon icon="circle-user" class="text-red-500 text-4xl"></db-icon>
       {{ currentUser }}
-    </div>
-    <div class="mx-4 my-2">
-      <db-button class="px-4 py-1" (click)="logOut()">
+    </db-panel>
+    <div class="flex justify-end my-4">
+      <db-button (click)="logOut()">
         Log out
       </db-button>
     </div>
-  </div>
+  </ng-container>
 
   <ng-template #showLoginForm>
 
     <!-- TODO set up form -->
-    <form class="max-w-md mx-auto">
+    <form>
 
       <db-input label="Username" name="username" [(model)]="loginModel.name" [required]="true"></db-input>
       <db-input label="Password" name="password" [(model)]="loginModel.password" [required]="true"></db-input>
