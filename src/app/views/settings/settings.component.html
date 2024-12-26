@@ -8,17 +8,7 @@
 
   <db-heading class="my-16">Top Area</db-heading>
 
-  @for (item of dashboard?.top; track item.uuid) {
-    <db-link-editor
-      [link]="item"
-      (linkChange)="onLinkSaved($event)"
-      (linkRemove)="onLinkRemoved($event)">
-    </db-link-editor>
-  }
-
-  <div class="flex justify-end mt-8">
-    <db-button>New Link</db-button>
-  </div>
+  <db-link-list-editor [links]="dashboard?.top || []"></db-link-list-editor>
 
   <db-heading class="my-16">Panels</db-heading>
 
@@ -30,16 +20,7 @@
         }
         <span class="align-middle">{{ panel.label }}</span>
       </db-heading>
-      @for (link of panel.links; track link.uuid) {
-        <db-link-editor
-          [link]="link"
-          (linkChange)="onLinkSaved($event)"
-          (linkRemove)="onLinkRemoved($event)">
-        </db-link-editor>
-      }
-      <div class="flex justify-end my-8">
-        <db-button>New Link</db-button>
-      </div>
+      <db-link-list-editor [links]="panel.links"></db-link-list-editor>
     </db-panel>
   }
 

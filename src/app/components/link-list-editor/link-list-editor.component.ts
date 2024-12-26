@@ -1,26 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { LinkEditorComponent } from '../link-editor/link-editor.component';
 import { LinkModel } from '../../models/link.model';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
-  selector: 'app-link-list-editor',
-  imports: [LinkEditorComponent],
+  selector: 'db-link-list-editor',
+  imports: [ButtonComponent, LinkEditorComponent],
   templateUrl: './link-list-editor.component.html'
 })
 export class LinkListEditorComponent {
 
-  links: LinkModel[] = [];
+  /**
+   * List of LinkModel
+   */
+  links = model<LinkModel[]>([]);
 
   /**
    * Writes the updated link to the local dashboard record
    *
    * @param update LinkModel
    */
-  onLinkSaved(update: LinkModel): void {
-    let i = this.links.findIndex(link => link.uuid === update.uuid);
-    if (i >= 0) {
-      this.links[i] = update;
+  onLinkSaved(update?: LinkModel): void {
+    if (!update) {
       return;
+    }
+    const links = this.links();
+    let i = links.findIndex(link => link.uuid === update.uuid);
+    if (i >= 0) {
+      links[i] = update;
     }
   }
 
@@ -29,11 +36,12 @@ export class LinkListEditorComponent {
    *
    * @param uuid UUID of the link
    */
-  onLinkRemoved(uuid: string): void {console.log(uuid);
-    let i = this.links.findIndex(link => link.uuid === uuid);
+  onLinkRemoved(uuid: string): void {
+    const links = this.links();
+    let i = links.findIndex(link => link.uuid === uuid);
     if (i >= 0) {
-      this.links.splice(i, 1);
-      return;
+      links.splice(i, 1);
+      // this.links.set(links);
     }
   }
 

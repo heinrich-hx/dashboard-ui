@@ -1,4 +1,4 @@
-import { Component, DestroyRef, EventEmitter, Input, Output } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, Output, model } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
@@ -22,8 +22,9 @@ export class LinkEditorComponent {
   /**
    * Link model
    */
-  @Input()
-  link?: LinkModel;
+  link = model<LinkModel>();
+  // @Input()
+  // link?: LinkModel;
 
   /**
    * Link change event: Triggered only when the link was saved successfully.
@@ -51,20 +52,21 @@ export class LinkEditorComponent {
    * Enables edit mode
    */
   edit(): void {
-    this.editLink = JSON.parse(JSON.stringify(this.link));
+    this.editLink = JSON.parse(JSON.stringify(this.link()));
   }
 
    /**
    * Removes link and emits the UUID
    */
    remove(): void {
-    if (!this.link) {
+    const uuid = this.link()?.uuid;
+    if (!uuid) {
       return;
     }
-    this.dashboardService.deleteLink(this.link.uuid)
+    this.dashboardService.deleteLink(uuid)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
-        this.linkRemove.emit(this.link?.uuid);
+        this.linkRemove.emit(uuid);
       });
   }
 
@@ -85,9 +87,9 @@ export class LinkEditorComponent {
     this.dashboardService.saveLink(this.editLink)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(savedLink => {
-        this.link = this.editLink;
+        this.link.set(this.editLink);
         this.editLink = undefined;
-        this.linkChange.emit(this.link);
+        this.linkChange.emit(this.link());
       });
   }
 

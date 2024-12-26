@@ -1,7 +1,11 @@
-@for (link of links; track link.uuid) {
+@for (link of links(); track link.uuid) {
   <db-link-editor
     [link]="link"
     (linkChange)="onLinkSaved($event)"
     (linkRemove)="onLinkRemoved($event)">
   </db-link-editor>
 }
+
+<div class="flex justify-end mt-8">
+  <db-button>New Link</db-button>
+</div>
