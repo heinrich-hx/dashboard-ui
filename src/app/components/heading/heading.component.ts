@@ -7,7 +7,10 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'db-heading',
   imports: [CommonModule],
-  templateUrl: './heading.component.html'
+  templateUrl: './heading.component.html',
+  host: {
+    class: 'block'
+  },
 })
 export class HeadingComponent {
 

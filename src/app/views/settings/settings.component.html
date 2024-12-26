@@ -1,8 +1,12 @@
-<db-container class="my-24">
-
+<div class="m-4">
   <db-button type="blank" class="mx-0" (click)="navigateBack()">
     <db-icon icon="arrow-left"></db-icon>
   </db-button>
+</div>
+
+<db-container class="mt-4 mb-24">
+
+  <db-heading class="my-16">Top Area</db-heading>
 
   @for (item of dashboard?.top; track item.uuid) {
     <db-link-editor
@@ -12,9 +16,15 @@
     </db-link-editor>
   }
 
+  <div class="flex justify-end mt-8">
+    <db-button>New Link</db-button>
+  </div>
+
+  <db-heading class="my-16">Panels</db-heading>
+
   @for (panel of dashboard?.panels; track panel.uuid) {
     <db-panel class="my-2">
-      <db-heading [level]="2">
+      <db-heading [level]="2" class="mb-4">
         @if (panel.icon) {
           <db-icon [icon]="panel.icon" class="align-middle mr-2 text-red-500"></db-icon>
         }
@@ -27,7 +37,14 @@
           (linkRemove)="onLinkRemoved($event)">
         </db-link-editor>
       }
+      <div class="flex justify-end my-8">
+        <db-button>New Link</db-button>
+      </div>
     </db-panel>
   }
+
+  <div class="flex justify-end mt-8">
+    <db-button>New Panel</db-button>
+  </div>
 
 </db-container>

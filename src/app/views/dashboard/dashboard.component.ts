@@ -9,6 +9,7 @@ import { PanelComponent } from '../../components/panel/panel.component';
 import { ContainerComponent } from '../../components/container/container.component';
 import { LinkComponent } from '../../components/link/link.component';
 import { HeadingComponent } from '../../components/heading/heading.component';
+import { ButtonComponent } from "../../components/button/button.component";
 
 /**
  * The main view
@@ -16,6 +17,7 @@ import { HeadingComponent } from '../../components/heading/heading.component';
 @Component({
   selector: 'app-dashboard',
   imports: [
+    ButtonComponent,
     CommonModule,
     ContainerComponent,
     HeadingComponent,
@@ -23,7 +25,7 @@ import { HeadingComponent } from '../../components/heading/heading.component';
     LinkComponent,
     PanelComponent,
     RouterLink
-  ],
+],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
