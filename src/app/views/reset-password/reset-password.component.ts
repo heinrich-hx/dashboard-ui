@@ -17,7 +17,10 @@ export class ResetPasswordComponent {
   /**
    * Form model
    */
-  model: CredentialsModel = { };
+  model: CredentialsModel = {
+    name: '',
+    password: ''
+  };
 
   constructor(private authService: AuthenticationService) { }
 

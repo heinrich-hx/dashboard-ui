@@ -6,12 +6,12 @@ export interface CredentialsModel {
   /**
    * Username
    */
-  name?: string;
+  name: string;
 
   /**
    * Password
    */
-  password?: string;
+  password: string;
 
   /**
    * Confirmation code

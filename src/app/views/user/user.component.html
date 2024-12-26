@@ -1,3 +1,9 @@
+<div class="m-4">
+  <db-button type="blank" class="mx-0" (click)="navigateBack()">
+    <db-icon icon="arrow-left"></db-icon>
+  </db-button>
+</div>
+
 <db-container class="my-24">
 
   <div class="flex justify-between max-w-md mx-auto" *ngIf="currentUser; else showLoginForm">
@@ -6,9 +12,9 @@
       {{ currentUser }}
     </div>
     <div class="mx-4 my-2">
-      <button class="bg-zinc-700 px-4 py-1" type="button" (click)="logOut()">
+      <db-button class="px-4 py-1" (click)="logOut()">
         Log out
-      </button>
+      </db-button>
     </div>
   </div>
 
@@ -17,23 +23,16 @@
     <!-- TODO set up form -->
     <form class="max-w-md mx-auto">
 
-      <div class="mx-4 my-2">
-        <label for="username">Username *</label><br>
-        <input id="username" name="username" type="text" class="text-zinc-950" [(ngModel)]="loginModel.name" required />
-      </div>
+      <db-input label="Username" name="username" [(model)]="loginModel.name" [required]="true"></db-input>
+      <db-input label="Password" name="password" [(model)]="loginModel.password" [required]="true"></db-input>
 
-      <div class="mx-4 my-2">
-        <label for="password">Password *</label><br>
-        <input id="password" name="password" type="password" class="text-zinc-950" [(ngModel)]="loginModel.password" required />
-      </div>
-
-      <div class="mx-4 my-2">
-        <button class="bg-red-500 px-4 py-1" type="button" (click)="logIn()">
-          Log in
-        </button>
-        <button type="button" routerLink="/reset-password">
+      <div class="flex justify-end my-4 gap-2">
+        <db-button type="blank" routerLink="/reset-password">
           Reset password
-        </button>
+        </db-button>
+        <db-button (click)="logIn()">
+          Log in
+        </db-button>
       </div>
 
     </form>

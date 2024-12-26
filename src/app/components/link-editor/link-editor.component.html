@@ -1,13 +1,13 @@
 @if (editLink) {
 
-  <div class="flex items-end">
+  <div class="flex items-end gap-4">
     <db-input class="flex-1" label="Icon" name="icon" [(model)]="editLink.icon"></db-input>
     <db-input class="flex-1" label="Label" name="label" [(model)]="editLink.label"></db-input>
     <db-input class="flex-1" label="URL" name="url" [(model)]="editLink.url"></db-input>
-    <db-button class="flex-none" type="blank" (click)="cancel()">
+    <db-button class="flex-none my-2" type="blank" (click)="cancel()">
       <db-icon icon="xmark"></db-icon>
     </db-button>
-    <db-button class="flex-none" type="blank" (click)="save()">
+    <db-button class="flex-none my-2" type="blank" (click)="save()">
       <db-icon icon="check"></db-icon>
     </db-button>
   </div>

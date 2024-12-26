@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   templateUrl: './input.component.html',
   host: {
-    class: 'inline-block mx-4 my-2'
+    class: 'block my-2'
   },
 })
 export class InputComponent {

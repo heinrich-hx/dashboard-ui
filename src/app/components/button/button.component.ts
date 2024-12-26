@@ -31,8 +31,8 @@ export class ButtonComponent {
    * CSS classes for the button types
    */
   readonly buttonStyles = {
-    primary: 'bg-red-500 active:bg-red-700 hover:bg-red-700 px-4 py-1 rounded-full',
-    secondary: 'bg-zinc-600 active:bg-zinc-700 hover:bg-zinc-700 px-4 py-1 rounded-full',
+    primary: 'bg-red-700 active:bg-red-500 hover:bg-red-500 px-4 py-1 rounded-full',
+    secondary: 'bg-zinc-700 active:bg-zinc-600 hover:bg-zinc-600 px-4 py-1 rounded-full',
     blank: 'active:bg-zinc-700 hover:bg-zinc-700 px-2 py-1 rounded-md'
   };
 

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -7,13 +7,22 @@ import { ContainerComponent } from '../../components/container/container.compone
 import { AuthenticationService } from '../../services/authentication.service';
 import { CredentialsModel } from '../../models/credentials.model';
 import { IconComponent } from '../../components/icon/icon.component';
+import { ButtonComponent } from '../../components/button/button.component';
+import { InputComponent } from '../../components/input/input.component';
 
 /**
  * User profile
  */
 @Component({
   selector: 'app-user',
-  imports: [CommonModule, ContainerComponent, FormsModule, IconComponent, RouterLink],
+  imports: [
+    ButtonComponent,
+    CommonModule,
+    ContainerComponent,
+    FormsModule,
+    IconComponent,
+    InputComponent,
+    RouterLink],
   templateUrl: './user.component.html'
 })
 export class UserComponent implements OnInit {
@@ -21,14 +30,20 @@ export class UserComponent implements OnInit {
   /**
    * Form model
    */
-  loginModel: CredentialsModel = {};
+  loginModel: CredentialsModel = {
+    name: '',
+    password: ''
+  };
 
   /**
    * Name of the current user, if there is an active session. Otherwise `undefined`.
    */
   currentUser?: string;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(
+    private readonly authService: AuthenticationService,
+    private readonly location: Location
+  ) { }
 
   /**
    * Initialization: Check the current user session
@@ -52,7 +67,10 @@ export class UserComponent implements OnInit {
     ).subscribe({
       next: username => {
         this.currentUser = username;
-        this.loginModel = {};
+        this.loginModel = {
+          name: '',
+          password: ''
+        };
       },
       error: error => console.error(error)
     });
@@ -66,6 +84,13 @@ export class UserComponent implements OnInit {
       next: () => this.currentUser = undefined,
       error: error => console.error(error)
     });
+  }
+
+  /**
+   * Navigate back
+   */
+  navigateBack(): void {
+    this.location.back();
   }
 
 }
