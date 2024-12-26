@@ -1,5 +1,5 @@
 <div class="m-4">
-  <db-button type="blank" class="mx-0" (click)="navigateBack()">
+  <db-button type="blank" (click)="navigateBack()">
     <db-icon icon="arrow-left"></db-icon>
   </db-button>
 </div>
@@ -24,7 +24,7 @@
     <form>
 
       <db-input label="Username" name="username" [(model)]="loginModel.name" [required]="true"></db-input>
-      <db-input label="Password" name="password" [(model)]="loginModel.password" [required]="true"></db-input>
+      <db-input label="Password" name="password" [(model)]="loginModel.password" [required]="true" type="password"></db-input>
 
       <div class="flex justify-end my-4 gap-2">
         <db-button type="blank" routerLink="/reset-password">

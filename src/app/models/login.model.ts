@@ -1,7 +1,7 @@
 /**
  * User credentials
  */
-export interface CredentialsModel {
+export interface LoginModel {
 
   /**
    * Username
@@ -12,10 +12,5 @@ export interface CredentialsModel {
    * Password
    */
   password: string;
-
-  /**
-   * Confirmation code
-   */
-  confirmationCode?: string;
 
 }

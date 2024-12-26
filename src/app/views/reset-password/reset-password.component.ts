@@ -1,15 +1,25 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ContainerComponent } from '../../components/container/container.component';
-import { CredentialsModel } from '../../models/credentials.model';
 import { AuthenticationService } from '../../services/authentication.service';
+import { ButtonComponent } from '../../components/button/button.component';
+import { InputComponent } from '../../components/input/input.component';
+import { ResetPasswordModel } from '../../models/reset-password.model';
+import { IconComponent } from '../../components/icon/icon.component';
 
 /**
  * A form for resetting the login password
  */
 @Component({
   selector: 'app-reset-password',
-  imports: [ContainerComponent, FormsModule],
+  imports: [
+    ButtonComponent,
+    ContainerComponent,
+    FormsModule,
+    IconComponent,
+    InputComponent
+  ],
   templateUrl: './reset-password.component.html'
 })
 export class ResetPasswordComponent {
@@ -17,12 +27,13 @@ export class ResetPasswordComponent {
   /**
    * Form model
    */
-  model: CredentialsModel = {
+  model: ResetPasswordModel = {
     name: '',
-    password: ''
+    password: '',
+    confirmationCode: ''
   };
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private readonly location: Location) { }
 
   /**
    * Requests a password reset
@@ -48,6 +59,13 @@ export class ResetPasswordComponent {
       next: () => console.log('OK'),
       error: error => console.error(error)
     });
+  }
+
+  /**
+   * Navigate back
+   */
+  navigateBack(): void {
+    this.location.back();
   }
 
 }

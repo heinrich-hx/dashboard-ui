@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { ContainerComponent } from '../../components/container/container.component';
 import { AuthenticationService } from '../../services/authentication.service';
-import { CredentialsModel } from '../../models/credentials.model';
+import { LoginModel } from '../../models/login.model';
 import { IconComponent } from '../../components/icon/icon.component';
 import { ButtonComponent } from '../../components/button/button.component';
 import { InputComponent } from '../../components/input/input.component';
@@ -33,7 +33,7 @@ export class UserComponent implements OnInit {
   /**
    * Form model
    */
-  loginModel: CredentialsModel = {
+  loginModel: LoginModel = {
     name: '',
     password: ''
   };

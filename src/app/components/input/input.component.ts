@@ -1,6 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { InputType } from './input-type';
+
+/**
+ * Transforms input type from string to enum.
+ * Returms `text` as fall back.
+ *
+ * @param value String value
+ * @returns Enum InputType
+ */
+function transformInputType(value: string): InputType {
+  const type = InputType[value as keyof typeof InputType];
+  return type ? type : InputType.text;
+}
 
 /**
  * Text input field
@@ -44,6 +57,11 @@ export class InputComponent {
    */
   @Input()
   required = false;
+
+  /**
+   * Input types: `text`, `number`, `password`
+   */
+  type = input(InputType.text, { transform: transformInputType });
 
   /**
    * Event handler for internal input element
