@@ -16,6 +16,11 @@ export class LinkListEditorComponent {
   links = model<LinkModel[]>([]);
 
   /**
+   * Local model for creating a new link
+   */
+  newLink?: LinkModel;
+
+  /**
    * Writes the updated link to the local dashboard record
    *
    * @param update LinkModel
@@ -43,6 +48,18 @@ export class LinkListEditorComponent {
       links.splice(i, 1);
       // this.links.set(links);
     }
+  }
+
+  /**
+   * Adds a new link
+   */
+  addNewLink(): void {
+    this.newLink = {
+      uuid: '',
+      icon: '',
+      label: '',
+      url: '',
+    };
   }
 
 }

@@ -6,6 +6,10 @@
   </db-link-editor>
 }
 
-<div class="flex justify-end mt-8">
-  <db-button>New Link</db-button>
-</div>
+@if (!newLink) {
+  <div class="flex justify-end mt-8">
+    <db-button (click)="addNewLink()">New Link</db-button>
+  </div>
+} @else {
+  <db-link-editor class="mt-8" [link]="newLink"></db-link-editor>
+}
