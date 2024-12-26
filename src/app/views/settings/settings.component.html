@@ -23,7 +23,7 @@
   <db-heading class="my-16">Panels</db-heading>
 
   @for (panel of dashboard?.panels; track panel.uuid) {
-    <db-panel class="my-2">
+    <db-panel class="my-4">
       <db-heading [level]="2" class="mb-4">
         @if (panel.icon) {
           <db-icon [icon]="panel.icon" class="align-middle mr-2 text-red-500"></db-icon>

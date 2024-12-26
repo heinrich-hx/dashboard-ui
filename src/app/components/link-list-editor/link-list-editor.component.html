@@ -1,0 +1,7 @@
+@for (link of links; track link.uuid) {
+  <db-link-editor
+    [link]="link"
+    (linkChange)="onLinkSaved($event)"
+    (linkRemove)="onLinkRemoved($event)">
+  </db-link-editor>
+}
