@@ -1,4 +1,4 @@
-import { Component, DestroyRef, EventEmitter, Input, Output, model } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, model } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
@@ -17,14 +17,18 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     class: 'block'
   },
 })
-export class LinkEditorComponent {
+export class LinkEditorComponent implements OnChanges {
 
   /**
    * Link model
    */
   link = model<LinkModel>();
-  // @Input()
-  // link?: LinkModel;
+
+  /**
+   * Setup for a new link instance
+   */
+  @Input()
+  create = false;
 
   /**
    * Link change event: Triggered only when the link was saved successfully.
@@ -39,6 +43,12 @@ export class LinkEditorComponent {
   linkRemove = new EventEmitter<string>();
 
   /**
+   * Edit mode closed
+   */
+  @Output()
+  canceled = new EventEmitter<void>();
+
+  /**
    * Link instance for editing
    */
   editLink?: LinkModel;
@@ -47,6 +57,16 @@ export class LinkEditorComponent {
     private readonly dashboardService: DashboardService,
     private readonly destroyRef: DestroyRef
   ) { }
+
+  /**
+   * On input changes
+   * @param changes
+   */
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.create === true) {
+      this.edit();
+    }
+  }
 
   /**
    * Enables edit mode
@@ -75,6 +95,7 @@ export class LinkEditorComponent {
    */
   cancel(): void {
     this.editLink = undefined;
+    this.canceled.emit();
   }
 
   /**

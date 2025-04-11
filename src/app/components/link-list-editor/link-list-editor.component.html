@@ -11,5 +11,11 @@
     <db-button (click)="addNewLink()">New Link</db-button>
   </div>
 } @else {
-  <db-link-editor class="mt-8" [link]="newLink"></db-link-editor>
+  <db-link-editor
+    class="mt-8"
+    [link]="newLink"
+    [create]="true"
+    (canceled)="cancelNewLink()"
+    (linkChange)="saveNewLink($event)"
+  ></db-link-editor>
 }

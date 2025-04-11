@@ -57,9 +57,32 @@ export class LinkListEditorComponent {
     this.newLink = {
       uuid: '',
       icon: '',
-      label: '',
+      label: 'New Link',
       url: '',
     };
+  }
+
+  /**
+   * Link creation was canceled
+   */
+  cancelNewLink(): void {
+    this.newLink = undefined;
+  }
+
+  /**
+   * New link was saved -> Add it to the array
+   *
+   * @param newLink Link model
+   */
+  saveNewLink(newLink?: LinkModel): void {
+    if (!newLink) {
+      return;
+    }
+    this.links.update(links => {
+      links.push(newLink);
+      return links;
+    })
+    this.newLink = undefined;
   }
 
 }
