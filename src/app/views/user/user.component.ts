@@ -1,4 +1,4 @@
-import { CommonModule, Location } from '@angular/common';
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -18,7 +18,6 @@ import { PanelComponent } from '../../components/panel/panel.component';
   selector: 'app-user',
   imports: [
     ButtonComponent,
-    CommonModule,
     ContainerComponent,
     FormsModule,
     IconComponent,

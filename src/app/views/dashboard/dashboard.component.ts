@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -17,8 +17,8 @@ import { ButtonComponent } from "../../components/button/button.component";
 @Component({
   selector: 'app-dashboard',
   imports: [
+    AsyncPipe,
     ButtonComponent,
-    CommonModule,
     ContainerComponent,
     HeadingComponent,
     IconComponent,

@@ -8,25 +8,33 @@
 </div>
 
 <db-container class="mb-24">
-  <ng-container *ngIf="$dashboard | async; let dashboard">
+  @if ($dashboard | async; as dashboard) {
 
     <div class="flex gap-4">
-    <db-link *ngFor="let link of dashboard.top" [link]="link"></db-link>
+      @for (link of dashboard.top; track link.uuid) {
+        <db-link [link]="link"></db-link>
+      }
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-6">
-      <db-panel *ngFor="let panel of dashboard.panels">
-        <db-heading [level]="2">
-          <db-icon *ngIf="panel.icon" [icon]="panel.icon" class="align-middle mr-2 text-red-500"></db-icon>
-          <span class="align-middle">{{ panel.label }}</span>
-        </db-heading>
-        <ul class="list-disc ml-4">
-          <li *ngFor="let link of panel.links">
-            <db-link [link]="link"></db-link>
-          </li>
-        </ul>
-      </db-panel>
+      @for (panel of dashboard.panels; track panel.uuid) {
+        <db-panel>
+          <db-heading [level]="2">
+            @if (panel.icon) {
+              <db-icon [icon]="panel.icon" class="align-middle mr-2 text-red-500"></db-icon>
+            }
+            <span class="align-middle">{{ panel.label }}</span>
+          </db-heading>
+          <ul class="list-disc ml-4">
+            @for (link of panel.links; track link.uuid) {
+              <li>
+                <db-link [link]="link"></db-link>
+              </li>
+            }
+          </ul>
+        </db-panel>
+      }
     </div>
 
-  </ng-container>
+  }
 </db-container>
