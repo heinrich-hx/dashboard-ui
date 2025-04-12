@@ -115,6 +115,9 @@ export class DashboardService {
    * @returns LinkModel
    */
   saveLink(link: LinkModel): Observable<LinkModel> {
+    if (!link.uuid) {
+      link.uuid = uuidv4();
+    }
     return of(link);
   }
 
