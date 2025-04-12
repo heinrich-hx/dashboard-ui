@@ -1,6 +1,14 @@
-<label [for]="name">
-  {{ label }}
-  <ng-container *ngIf="required"> *</ng-container>
+<label [for]="name()">
+  {{ label() }}
+  @if (required()) {*}
 </label>
 <br>
-<input class="text-zinc-950 w-full" [id]="name" [name]="name" [type]="type()" [ngModel]="model" (ngModelChange)="onModelChange($event)" [required]="required"/>
+<input
+  class="text-zinc-950 w-full"
+  [id]="name()"
+  [name]="name()"
+  [type]="type()"
+  [ngModel]="model()"
+  (ngModelChange)="onModelChange($event)"
+  [required]="required()"
+/>

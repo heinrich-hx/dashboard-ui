@@ -1,4 +1,4 @@
-import { Component, DestroyRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, model } from '@angular/core';
+import { Component, DestroyRef, OnChanges, SimpleChanges, input, model, output } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
@@ -27,26 +27,22 @@ export class LinkEditorComponent implements OnChanges {
   /**
    * Setup for a new link instance
    */
-  @Input()
-  create = false;
+  create = input(false);
 
   /**
    * Link change event: Triggered only when the link was saved successfully.
    */
-  @Output()
-  linkChange = new EventEmitter<LinkModel>();
+  linkChange = output<LinkModel>();
 
   /**
    * Link remove event: Triggered only when the link was removed successfully.
    */
-  @Output()
-  linkRemove = new EventEmitter<string>();
+  linkRemove = output<string>();
 
   /**
    * Edit mode closed
    */
-  @Output()
-  canceled = new EventEmitter<void>();
+  canceled = output<void>();
 
   /**
    * Link instance for editing
@@ -63,7 +59,7 @@ export class LinkEditorComponent implements OnChanges {
    * @param changes
    */
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.create === true) {
+    if (this.create() === true) {
       this.edit();
     }
   }
@@ -108,9 +104,9 @@ export class LinkEditorComponent implements OnChanges {
     this.dashboardService.saveLink(this.editLink)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(savedLink => {
-        this.link.set(this.editLink);
+        this.link.set(savedLink);
         this.editLink = undefined;
-        this.linkChange.emit(this.link());
+        this.linkChange.emit(savedLink);
       });
   }
 

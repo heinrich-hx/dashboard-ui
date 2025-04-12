@@ -1,1 +1,3 @@
-<i *ngIf="icon" [ngClass]="['fa-solid', 'fa-' + icon]"></i>
+@if (icon(); as icon) {
+  <i [ngClass]="['fa-solid', 'fa-' + icon]"></i>
+}

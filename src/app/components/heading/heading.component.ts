@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 /**
  * Generates the headline elements h1-h6
@@ -17,7 +17,6 @@ export class HeadingComponent {
   /**
    * Headline level: 1-6
    */
-  @Input()
-  level: number = 1;
+  level = input<number>(1);
 
 }

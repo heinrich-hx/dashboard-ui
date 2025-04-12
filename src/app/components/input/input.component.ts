@@ -1,5 +1,4 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, input, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InputType } from './input-type';
 
@@ -20,7 +19,7 @@ function transformInputType(value: string): InputType {
  */
 @Component({
   selector: 'db-input',
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './input.component.html',
   host: {
     class: 'block my-2'
@@ -31,32 +30,27 @@ export class InputComponent {
   /**
    * Label
    */
-  @Input()
-  label: string = '';
+  label = input('');
 
   /**
    * Name
    */
-  @Input()
-  name: string = '';
+  name = input('');
 
   /**
    * Model
    */
-  @Input()
-  model: string = '';
-
-  /**
-   * Model change event
-   */
-  @Output()
-  modelChange = new EventEmitter<string>();
+  model = input('');
 
   /**
    * Required
    */
-  @Input()
-  required = false;
+  required = input(false);
+
+  /**
+   * Model change event
+   */
+  modelChange = output<string>();
 
   /**
    * Input types: `text`, `number`, `password`
