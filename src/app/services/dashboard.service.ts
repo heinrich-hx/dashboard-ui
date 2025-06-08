@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 import { DashboardModel } from '../models/dashboard.model';
 import { ConfigService } from './config.service';
-import { LinkModel } from '../models/link.model';
 
 /**
  * DashboardService
@@ -108,23 +107,4 @@ export class DashboardService {
     return of(this.dashboard);
   }
 
-  /**
-   * Saves a link based on its UUID
-   *
-   * @param link LinkModel
-   * @returns LinkModel
-   */
-  saveLink(link: LinkModel): Observable<LinkModel> {
-    if (!link.uuid) {
-      link.uuid = uuidv4();
-    }
-    return of(link);
-  }
-
-  /**
-   * Deletes a link based in its UUID
-   */
-  deleteLink(uuid: string): Observable<boolean> {
-    return of(true);
-  }
 }

@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, DestroyRef, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { v4 as uuidv4 } from 'uuid';
 import { ContainerComponent } from '../../components/container/container.component';
 import { DashboardService } from '../../services/dashboard.service';
 import { DashboardModel } from '../../models/dashboard.model';
@@ -9,6 +10,7 @@ import { IconComponent } from '../../components/icon/icon.component';
 import { PanelComponent } from '../../components/panel/panel.component';
 import { HeadingComponent } from '../../components/heading/heading.component';
 import { LinkListEditorComponent } from '../../components/link-list-editor/link-list-editor.component';
+import { PanelEditorComponent } from "../../components/panel-editor/panel-editor.component";
 
 /**
  * The dashboard editor
@@ -21,8 +23,9 @@ import { LinkListEditorComponent } from '../../components/link-list-editor/link-
     HeadingComponent,
     IconComponent,
     LinkListEditorComponent,
-    PanelComponent
-  ],
+    PanelComponent,
+    PanelEditorComponent
+],
   templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit {
@@ -48,12 +51,17 @@ export class SettingsComponent implements OnInit {
   }
 
   /**
-   * Saves dashboard
+   * Adds a new panel to the dashboard
    */
-  saveDashboard(): void {
+  addPanel(): void {
     if (!this.dashboard) {
       return;
     }
+    this.dashboard.panels.push({
+      uuid: uuidv4(),
+      label: 'New Panel',
+      links: [],
+    });
     this.dashboardService.saveDashboard(this.dashboard)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(dashboard => {

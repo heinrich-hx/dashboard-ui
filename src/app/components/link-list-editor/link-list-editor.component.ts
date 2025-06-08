@@ -1,4 +1,5 @@
 import { Component, model } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 import { LinkEditorComponent } from '../link-editor/link-editor.component';
 import { LinkModel } from '../../models/link.model';
 import { ButtonComponent } from '../button/button.component';
@@ -55,7 +56,7 @@ export class LinkListEditorComponent {
    */
   addNewLink(): void {
     this.newLink = {
-      uuid: '',
+      uuid: uuidv4(),
       icon: '',
       label: 'New Link',
       url: '',

@@ -4,7 +4,6 @@ import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
 import { LinkModel } from '../../models/link.model';
 import { DashboardService } from '../../services/dashboard.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 /**
  * Link editor
@@ -30,12 +29,12 @@ export class LinkEditorComponent implements OnChanges {
   create = input(false);
 
   /**
-   * Link change event: Triggered only when the link was saved successfully.
+   * Link change event
    */
   linkChange = output<LinkModel>();
 
   /**
-   * Link remove event: Triggered only when the link was removed successfully.
+   * Link remove event
    */
   linkRemove = output<string>();
 
@@ -72,18 +71,14 @@ export class LinkEditorComponent implements OnChanges {
   }
 
    /**
-   * Removes link and emits the UUID
+   * Removes link
    */
    remove(): void {
     const uuid = this.link()?.uuid;
     if (!uuid) {
       return;
     }
-    this.dashboardService.deleteLink(uuid)
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(() => {
-        this.linkRemove.emit(uuid);
-      });
+    this.linkRemove.emit(uuid);
   }
 
   /**
@@ -101,13 +96,10 @@ export class LinkEditorComponent implements OnChanges {
     if (!this.editLink) {
       return;
     }
-    this.dashboardService.saveLink(this.editLink)
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(savedLink => {
-        this.link.set(savedLink);
-        this.editLink = undefined;
-        this.linkChange.emit(savedLink);
-      });
+    const savedLink = this.editLink;
+    this.link.set(savedLink);
+    this.editLink = undefined;
+    this.linkChange.emit(savedLink);
   }
 
 }

@@ -14,18 +14,12 @@
 
   @for (panel of dashboard?.panels; track panel.uuid) {
     <db-panel class="my-4">
-      <db-heading [level]="2" class="mb-4">
-        @if (panel.icon) {
-          <db-icon [icon]="panel.icon" class="align-middle mr-2 text-red-500"></db-icon>
-        }
-        <span class="align-middle">{{ panel.label }}</span>
-      </db-heading>
-      <db-link-list-editor [links]="panel.links"></db-link-list-editor>
+      <db-panel-editor [panel]="panel"></db-panel-editor>
     </db-panel>
   }
 
   <div class="flex justify-end mt-8">
-    <db-button>New Panel</db-button>
+    <db-button (click)="addPanel()">New Panel</db-button>
   </div>
 
 </db-container>
