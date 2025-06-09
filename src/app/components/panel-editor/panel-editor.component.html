@@ -1,16 +1,30 @@
-<div class="flex">
-  <db-heading [level]="2" class="mb-4 grow">
-    @if (panel()?.icon) {
-      <db-icon [icon]="panel()?.icon" class="align-middle mr-2 text-red-500"></db-icon>
-    }
-    <span class="align-middle">{{ panel()?.label }}</span>
+@if (editMode) {
+  <div class="flex items-end gap-4">
+    <db-input class="grow" label="Icon" name="icon" [(model)]="editMode.icon"></db-input>
+    <db-input class="grow" label="Label" name="label" [(model)]="editMode.label"></db-input>
+    <db-button class="my-2" type="blank" (click)="cancel()">
+      <db-icon icon="xmark"></db-icon>
+    </db-button>
+    <db-button class="my-2" type="blank" (click)="save()">
+      <db-icon icon="check"></db-icon>
+    </db-button>
+  </div>
+} @else {
+  <div class="flex">
+    <db-heading [level]="2" class="mb-4 grow">
+      @if (panel().icon) {
+        <db-icon [icon]="panel().icon" class="align-middle mr-2 text-red-500"></db-icon>
+      }
+      <span class="align-middle">{{ panel().label }}</span>
 
-  </db-heading>
-  <db-button class="flex-none" (click)="remove()" type="blank">
-    <db-icon icon="trash"></db-icon>
-  </db-button>
-  <db-button class="flex-none" (click)="edit()" type="blank">
-    <db-icon icon="pen-to-square"></db-icon>
-  </db-button>
-</div>
-<db-link-list-editor [links]="panel()?.links || []"></db-link-list-editor>
+    </db-heading>
+    <db-button class="flex-none" (click)="remove()" type="blank">
+      <db-icon icon="trash"></db-icon>
+    </db-button>
+    <db-button class="flex-none" (click)="edit()" type="blank">
+      <db-icon icon="pen-to-square"></db-icon>
+    </db-button>
+  </div>
+}
+
+<db-link-list-editor [(links)]="panel().links" (linksChange)="save()"></db-link-list-editor>

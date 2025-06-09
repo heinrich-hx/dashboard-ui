@@ -51,6 +51,20 @@ export class SettingsComponent implements OnInit {
   }
 
   /**
+   * Save dashboard
+   */
+  save(): void {
+    if (!this.dashboard) {
+      return;
+    }
+    this.dashboardService.saveDashboard(this.dashboard)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(dashboard => {
+        this.dashboard = dashboard;
+      });
+  }
+
+  /**
    * Adds a new panel to the dashboard
    */
   addPanel(): void {
@@ -62,11 +76,7 @@ export class SettingsComponent implements OnInit {
       label: 'New Panel',
       links: [],
     });
-    this.dashboardService.saveDashboard(this.dashboard)
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(dashboard => {
-        this.dashboard = dashboard;
-      });
+    this.save();
   }
 
   /**

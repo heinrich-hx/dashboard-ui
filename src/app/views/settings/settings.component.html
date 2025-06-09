@@ -8,18 +8,21 @@
 
   <db-heading class="my-16">Top Area</db-heading>
 
-  <db-link-list-editor [links]="dashboard?.top || []"></db-link-list-editor>
-
+  @if (dashboard) {
+    <db-link-list-editor [(links)]="dashboard.top" (linksChange)="save()"></db-link-list-editor>
+  }
   <db-heading class="my-16">Panels</db-heading>
 
-  @for (panel of dashboard?.panels; track panel.uuid) {
-    <db-panel class="my-4">
-      <db-panel-editor [panel]="panel"></db-panel-editor>
-    </db-panel>
-  }
+  @if (dashboard) {
+    @for (panel of dashboard.panels; let i = $index; track panel.uuid) {
+      <db-panel class="my-4">
+        <db-panel-editor [(panel)]="dashboard.panels[i]" (panelChange)="save()"></db-panel-editor>
+      </db-panel>
+    }
 
-  <div class="flex justify-end mt-8">
-    <db-button (click)="addPanel()">New Panel</db-button>
-  </div>
+    <div class="flex justify-end mt-8">
+      <db-button (click)="addPanel()">New Panel</db-button>
+    </div>
+  }
 
 </db-container>

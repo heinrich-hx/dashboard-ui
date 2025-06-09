@@ -104,6 +104,7 @@ export class DashboardService {
    */
   saveDashboard(dashboard: DashboardModel): Observable<DashboardModel> {
     this.dashboard = JSON.parse(JSON.stringify(dashboard));
+    console.log('SAVE', this.dashboard);
     return of(this.dashboard);
   }
 

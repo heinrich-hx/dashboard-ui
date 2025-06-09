@@ -30,11 +30,13 @@ export class LinkListEditorComponent {
     if (!update) {
       return;
     }
-    const links = this.links();
-    let i = links.findIndex(link => link.uuid === update.uuid);
-    if (i >= 0) {
-      links[i] = update;
-    }
+    this.links.update(links => {
+      let i = links.findIndex(link => link.uuid === update.uuid);
+      if (i >= 0) {
+        links[i] = update;
+      }
+      return [...links];
+    });
   }
 
   /**
@@ -43,12 +45,13 @@ export class LinkListEditorComponent {
    * @param uuid UUID of the link
    */
   onLinkRemoved(uuid: string): void {
-    const links = this.links();
-    let i = links.findIndex(link => link.uuid === uuid);
-    if (i >= 0) {
-      links.splice(i, 1);
-      // this.links.set(links);
-    }
+    this.links.update(links => {
+      let i = links.findIndex(link => link.uuid === uuid);
+      if (i >= 0) {
+        links.splice(i, 1);
+      }
+      return [...links];
+    });
   }
 
   /**
@@ -81,9 +84,10 @@ export class LinkListEditorComponent {
     }
     this.links.update(links => {
       links.push(newLink);
-      return links;
-    })
-    this.newLink = undefined;
+      this.newLink = undefined;
+      return [...links];
+    });
+
   }
 
 }

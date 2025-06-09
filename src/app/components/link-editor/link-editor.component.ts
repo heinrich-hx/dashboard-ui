@@ -1,9 +1,8 @@
-import { Component, DestroyRef, OnChanges, SimpleChanges, input, model, output } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, input, model, output } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
 import { LinkModel } from '../../models/link.model';
-import { DashboardService } from '../../services/dashboard.service';
 
 /**
  * Link editor
@@ -47,11 +46,6 @@ export class LinkEditorComponent implements OnChanges {
    * Link instance for editing
    */
   editLink?: LinkModel;
-
-  constructor(
-    private readonly dashboardService: DashboardService,
-    private readonly destroyRef: DestroyRef
-  ) { }
 
   /**
    * On input changes
