@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, input, model, output } from '@angular/core';
+import { Component, effect, input, model, output } from '@angular/core';
 import { IconComponent } from '../../components/icon/icon.component';
 import { InputComponent } from '../input/input.component';
 import { ButtonComponent } from '../button/button.component';
@@ -15,7 +15,7 @@ import { LinkModel } from '../../models/link.model';
     class: 'block'
   },
 })
-export class LinkEditorComponent implements OnChanges {
+export class LinkEditorComponent {
 
   /**
    * Link model
@@ -26,11 +26,6 @@ export class LinkEditorComponent implements OnChanges {
    * Setup for a new link instance
    */
   create = input(false);
-
-  /**
-   * Link change event
-   */
-  linkChange = output<LinkModel>();
 
   /**
    * Link remove event
@@ -47,14 +42,12 @@ export class LinkEditorComponent implements OnChanges {
    */
   editLink?: LinkModel;
 
-  /**
-   * On input changes
-   * @param changes
-   */
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.create() === true) {
-      this.edit();
-    }
+  constructor() {
+    effect(() => {
+      if (this.create() === true) {
+        this.edit();
+      }
+    });
   }
 
   /**
@@ -90,10 +83,8 @@ export class LinkEditorComponent implements OnChanges {
     if (!this.editLink) {
       return;
     }
-    const savedLink = this.editLink;
-    this.link.set(savedLink);
+    this.link.set(this.editLink);
     this.editLink = undefined;
-    this.linkChange.emit(savedLink);
   }
 
 }

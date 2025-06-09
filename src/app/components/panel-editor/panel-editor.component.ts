@@ -1,4 +1,4 @@
-import { Component, model } from '@angular/core';
+import { Component, model, output } from '@angular/core';
 import { HeadingComponent } from "../heading/heading.component";
 import { IconComponent } from "../icon/icon.component";
 import { LinkListEditorComponent } from "../link-list-editor/link-list-editor.component";
@@ -19,6 +19,11 @@ export class PanelEditorComponent {
   panel = model<LinkListModel>({ uuid: '', label: '', links: [] });
 
   /**
+   * Panel remove event
+   */
+  remove = output<string>();
+
+  /**
    * Edit mode
    */
   editMode?: {
@@ -27,7 +32,7 @@ export class PanelEditorComponent {
   };
 
   /**
-   * Edit label/icon
+   * Enables edit mode for label/icon
    */
   edit(): void {
     this.editMode = {
@@ -37,7 +42,7 @@ export class PanelEditorComponent {
   }
 
   /**
-   * Save
+   * Saves changes to label/icon and links
    */
   save(): void {
     this.panel.update(panel => {
@@ -59,10 +64,10 @@ export class PanelEditorComponent {
   }
 
   /**
-   * Remove panel
+   * Sends remove event to parent component
    */
-  remove(): void{
-
+  removePanel(): void{
+    this.remove.emit(this.panel().uuid);
   }
 
 }

@@ -80,6 +80,19 @@ export class SettingsComponent implements OnInit {
   }
 
   /**
+   * Removes a panel
+   *
+   * @param uuid UUID of the panel
+   */
+  removePanel(uuid: string): void {
+    const i = this.dashboard ? this.dashboard.panels.findIndex(panel => panel.uuid === uuid) : -1;
+    if (i >= 0) {
+      this.dashboard?.panels.splice(i, 1);
+      this.save();
+    }
+  }
+
+  /**
    * Navigate back
    */
   navigateBack(): void {

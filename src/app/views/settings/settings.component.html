@@ -16,7 +16,7 @@
   @if (dashboard) {
     @for (panel of dashboard.panels; let i = $index; track panel.uuid) {
       <db-panel class="my-4">
-        <db-panel-editor [(panel)]="dashboard.panels[i]" (panelChange)="save()"></db-panel-editor>
+        <db-panel-editor [(panel)]="dashboard.panels[i]" (panelChange)="save()" (remove)="removePanel($event)"></db-panel-editor>
       </db-panel>
     }
 
